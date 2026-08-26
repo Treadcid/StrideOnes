@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - Mechanics & Markets</title>
+    <style>
+        /* Reset spacing and configure fonts */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        /* Displays your crystal background perfectly full-screen and keeps it locked while scrolling */
+        body {
+            background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #00ffff; /* Global neon blue override fallback */
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start; /* Start content from top for the navbar */
+            padding: 0 5% 4rem 5%;
+            overflow-y: auto; /* Allows smooth scrolling over the locked background image */
+        }
+
+        /* Top Navigation Bar Styling matching Homepage */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end; /* Pushes menu items to the right side */
+            padding: 2.5rem 4%;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem; /* Balanced space between links */
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800; /* Extra bold text to show colors better */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* INTENSE NEON COLOR PROFILES */
+        .link-home {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+        }
+
+        .link-about {
+            color: #bd00ff;
+            text-shadow: 0 0 8px rgba(189, 0, 255, 0.4);
+        }
+
+        .link-contact {
+            color: #0066ff;
+            text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
+        }
+
+        .link-support {
+            color: #00ffcc;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+        }
+
+        /* POWERFUL NEON HOVER SHADOW EFFECTS */
+        .link-home:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 5px #00ffff);
+        }
+
+        .link-about:hover {
+            transform: scale(1.15);
+            color: #df80ff;
+            text-shadow: 0 0 15px #bd00ff, 0 0 30px #bd00ff;
+        }
+
+        .link-contact:hover {
+            transform: scale(1.15);
+            color: #80b3ff;
+            text-shadow: 0 0 15px #0066ff, 0 0 30px #0066ff;
+        }
+
+        .link-support:hover {
+            transform: scale(1.15);
+            color: #ffffff;
+            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+        }
+
+        /* Layout wrapper for content blocks */
+        .tech-container {
+            max-width: 900px;
+            width: 100%;
+            padding: 2rem;
+            z-index: 10;
+            margin-top: 5vh; 
+        }
+
+        /* Main Title Component styled with neon blue laser profile */
+        .mechanics-heading {
+            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 3.5rem;
+            letter-spacing: 1.5px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Feature block layout formatting */
+        .feature-block {
+            margin-bottom: 2.5rem;
+            text-align: left;
+            background: rgba(11, 12, 16, 0.65); /* Translucent shield layer for reading */
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid #00ffff; /* Uniform matching glowing left bar border */
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 255, 0.05);
+            backdrop-filter: blur(6px);
+        }
+
+        /* Sub-feature header with striking electric neon blue gradient color text */
+        .feature-title {
+            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-weight: 800;
+            color: #00ffff;
+            margin-bottom: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+        }
+
+        /* Running copy content descriptions shifting to neon blue hue tint */
+        .tech-description {
+            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
+            line-height: 1.8;
+            color: #b3ffff; /* Light luminescent blue text color value mapping */
+            font-weight: 500;
+            text-shadow: 0 0 4px rgba(0, 255, 255, 0.2);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 900px) {
+            .navbar {
+                justify-content: center; /* Centers navigation links on mobile screens */
+                padding: 1.5rem 2%;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .tech-container {
+                margin-top: 4vh;
+                padding: 0.5rem;
+            }
+            .feature-block {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="link-home">Home</a></li>
+            <li><a href="about.html" class="link-about">About</a></li>
+            <li><a href="#contact" class="link-contact">Contact</a></li>
+            <li><a href="#support" class="link-support">Contact Support</a></li>
+        </ul>
+    </header>
+
+    <div class="tech-container">
+        
+        <!-- Main Core Mechanics Title Layer -->
+        <h2 class="mechanics-heading">The Core Mechanics</h2>
+
+        <!-- Block 1: Active Motion Cancellation -->
+        <div class="feature-block">
+            <h3 class="feature-title">Active Motion Cancellation:</h3>
+            <p class="tech-description">The sole of the shoe contains a matrix of miniature, motorized micro-belts and multi-directional rollers. Instead of the user moving across the floor, the floor-contact layer of the shoe moves underneath the user.</p>
+        </div>
+
+        <!-- Block 2: Instantaneous Sensor Loop -->
+        <div class="feature-block">
+            <h3 class="feature-title">Instantaneous Sensor Loop:</h3>
+            <p class="tech-description">Embedded pressure plates and motion sensors track the user's foot movement in milliseconds. If the user steps forward at 5 km/h, the internal motors instantly drive the rollers backward at 5 km/h. The two forces cancel out perfectly, keeping the user centered.</p>
+        </div>
+
+        <!-- Block 3: Dual-Control Ecosystem -->
+        <div class="feature-block">
+            <h3 class="feature-title">Dual-Control Ecosystem:</h3>
+            <p class="tech-description">The user has total control. A companion smartphone app handles advanced calibration, stride tracking, and safety caps. For immediate, tactile adjustments or emergency stops, we have integrated a discreet manual dial directly into the heel of the shoe.</p>
+        </div>
+
+        <!-- Block 4: The Virtual Reality Market -->
+        <div class="feature-block">
+            <h3 class="feature-title">The Virtual Reality Market:</h3>
+            <p class="tech-description">This solves VR's biggest problem immersion. Users can physically walk through massive digital worlds in their living rooms without hitting actual walls.</p>
+        </div>
+
+        <!-- Block 5: The Fitness & Space Saving Market -->
+        <div class="feature-block">
+            <h3 class="feature-title">The Fitness & Space Saving Market:</h3>
+            <p class="tech-description">It replaces bulky, expensive home treadmills with a pair of shoes you can store in a closet.</p>
+        </div>
+
+    </div>
+
+</body>
+</html>

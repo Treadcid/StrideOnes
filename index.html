@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Future of Sports Shoes</title>
+    <style>
+        /* Reset margins and set up fonts */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0c10;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Top Navigation Bar Styling */
+        .navbar {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: flex-end; /* Pushes menu items to the right side */
+            padding: 2.5rem 8%;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem; /* Balanced space between links */
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800; /* Extra bold text to show colors better */
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* INTENSE NEON COLOR PROFILES */
+        .link-home {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+        }
+
+        .link-about {
+            color: #bd00ff;
+            text-shadow: 0 0 8px rgba(189, 0, 255, 0.4);
+        }
+
+        .link-contact {
+            color: #0066ff;
+            text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
+        }
+
+        .link-support {
+            color: #00ffcc;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+        }
+
+        /* POWERFUL NEON HOVER SHADOW EFFECTS */
+        .link-home:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 5px #00ffff);
+        }
+
+        .link-about:hover {
+            transform: scale(1.15);
+            color: #df80ff;
+            text-shadow: 0 0 15px #bd00ff, 0 0 30px #bd00ff;
+        }
+
+        .link-contact:hover {
+            transform: scale(1.15);
+            color: #80b3ff;
+            text-shadow: 0 0 15px #0066ff, 0 0 30px #0066ff;
+        }
+
+        .link-support:hover {
+            transform: scale(1.15);
+            color: #ffffff;
+            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+        }
+
+        /* Displays your screenshot full-screen as the background */
+        .hero-section {
+            position: relative;
+            width: 100%;
+            min-height: 100vh;
+            background: url('hero-bg.png') no-repeat center center;
+            background-size: cover;
+            display: flex;
+            align-items: center;
+            padding: 0 8%;
+        }
+
+        /* Wraps the text so it stays on the left */
+        .content-box {
+            max-width: 550px;
+            z-index: 10;
+            margin-top: 4rem; /* Adds clearance under the absolute navbar */
+        }
+
+        /* Main Heading Styling with Gradient Effects */
+        .main-title {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            line-height: 1.1;
+            letter-spacing: 1px;
+            margin-bottom: 2rem;
+        }
+
+        /* Matches the Canva neon blue/purple gradient */
+        .title-future {
+            background: linear-gradient(to right, #0052ff, #b500ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .title-sports {
+            color: #9d00ff;
+            display: block;
+        }
+
+        .title-shoes {
+            color: #0044ff;
+            display: block;
+        }
+
+        /* Subheading Styling with Neon Blue to Yellow Gradient */
+        .sub-title {
+            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-weight: 600;
+            line-height: 1.4;
+            max-width: 420px;
+            
+            /* The magic gradient styling matching your image */
+            background: linear-gradient(to right, #00d2ff, #a8ff78, #fdf542);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 900px) {
+            .navbar {
+                justify-content: center; /* Centers navigation links on mobile screens */
+                padding: 1.5rem 5%;
+            }
+            .nav-links {
+                gap: 1.2rem;
+            }
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+            .hero-section {
+                padding: 25% 5% 5% 5%;
+                align-items: flex-start;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section -->
+    <header class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="link-home">Home</a></li>
+            <li><a href="about.html" class="link-about">About</a></li> <!-- Points to your new standalone page -->
+            <li><a href="#contact" class="link-contact">Contact</a></li>
+            <li><a href="#support" class="link-support">Contact Support</a></li>
+        </ul>
+    </header>
+
+    <!-- Hero Showcase Section -->
+    <section id="home" class="hero-section">
+        
+        <!-- Sharp Text Overlaid on top of your screenshot background -->
+        <div class="content-box">
+            <h1 class="main-title">
+                <span class="title-future">The Future</span>
+                <span class="title-sports">Of Sports</span>
+                <span class="title-shoes">Shoes</span>
+            </h1>
+            <p class="sub-title">Step closer to who you wanna be with every step</p>
+        </div>
+
+    </section>
+
+</body>
+</html>
