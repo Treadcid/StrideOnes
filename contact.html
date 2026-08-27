@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - StrideOnes</title>
+    <style>
+        /* Reset spacing and configure base fonts */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* Displays your laser background full-screen and keeps it locked */
+        body {
+            background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 0 5% 4rem 5%;
+            overflow-y: auto;
+        }
+
+        /* Top Fixed Navigation Bar Layout Matrix */
+        .navbar {
+            width: 100%;
+            display: flex;
+            justify-content: flex-end;
+            padding: 2.5rem 4%;
+            z-index: 100;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-size: 1.15rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            display: inline-block;
+            transition: transform 0.3s ease, filter 0.3s ease;
+        }
+
+        /* NEON NAVIGATION GLOW CONFIGURATIONS */
+        .link-home {
+            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+        }
+
+        .link-about { color: #bd00ff; text-shadow: 0 0 8px rgba(189, 0, 255, 0.4); }
+        .link-contact { color: #0066ff; text-shadow: 0 0 8px rgba(0, 102, 255, 0.4); }
+        .link-support { color: #00ffcc; text-shadow: 0 0 8px rgba(0, 255, 204, 0.4); }
+
+        .nav-links a:hover { transform: scale(1.15); filter: drop-shadow(0 0 15px #00ffff); }
+
+        /* Container box for your contact interface card wrapper */
+        .form-container {
+            max-width: 600px;
+            width: 100%;
+            padding: 3.5rem 3rem;
+            margin-top: 5vh;
+            background: rgba(0, 0, 0, 0.7);
+            border-radius: 16px;
+            border: 2px solid #0066ff; /* Match the vivid cyber blue target tracking look */
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 102, 255, 0.3);
+            backdrop-filter: blur(4px);
+            z-index: 10;
+        }
+
+        /* Glowing Contact Title Header */
+        .form-heading {
+            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-weight: 900;
+            text-align: center;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+            letter-spacing: 1px;
+            color: #00ffff;
+            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 102, 255, 0.4);
+        }
+
+        /* Cyberpunk Input field blocks formatting layout styles */
+        .input-group {
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.95rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+            color: #b3ffff;
+            text-shadow: 0 0 4px rgba(0, 255, 255, 0.2);
+        }
+
+        .input-group input, .input-group textarea {
+            width: 100%;
+            padding: 1.1rem;
+            background: rgba(11, 12, 16, 0.85);
+            border: 1px solid rgba(0, 255, 255, 0.25);
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 1.05rem;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        /* Field Active Glow effects selection wrapper */
+        .input-group input:focus, .input-group textarea:focus {
+            border-color: #00ffff;
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
+            background: rgba(11, 12, 16, 0.95);
+        }
+
+        .input-group textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* Neon Action Submission element button selector styling */
+        .submit-btn {
+            width: 100%;
+            padding: 1.1rem;
+            background: transparent;
+            border: 2px solid #00ffff;
+            border-radius: 30px;
+            color: #00ffff;
+            font-size: 1.15rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+            margin-top: 1rem;
+        }
+
+        .submit-btn:hover {
+            background: #00ffff;
+            color: #0b0c10;
+            box-shadow: 0 0 25px #00ffff, 0 0 5px #00ffff;
+            transform: scale(1.02);
+        }
+
+        /* Mobile specific adjustments scaling responsiveness views values */
+        @media (max-width: 900px) {
+            .navbar { padding: 1.5rem 2%; justify-content: center; }
+            .nav-links { gap: 1.2rem; }
+            .nav-links a { font-size: 0.85rem; }
+            .form-container { margin-top: 2vh; padding: 2.5rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header Navigation Section Link Bar -->
+    <header class="navbar">
+        <ul class="nav-links">
+            <li><a href="index.html" class="link-home">Home</a></li>
+            <li><a href="about.html" class="link-about">About</a></li>
+            <li><a href="contact.html" class="link-contact">Contact</a></li>
+            <li><a href="support.html" class="link-support">Contact Support</a></li>
+        </ul>
+    </header>
+
+    <!-- Message Entry Center Card Component -->
+    <div class="form-container">
+        <h2 class="form-heading">Get In Touch</h2>
+        
+        <form action="#" method="POST" onsubmit="event.preventDefault(); alert('Message broadcast successful! We will analyze your stride configurations soon.');">
+            <div class="input-group">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" required placeholder="Enter your full name">
+            </div>
+
+            <div class="input-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" required placeholder="Enter your network email address">
+            </div>
+
+            <div class="input-group">
+                <label for="message">Message Details</label>
+                <textarea id="message" required placeholder="Type out your questions about our core shoe mechanics, prototype sizing, or order nodes here..."></textarea>
+            </div>
+
+            <button type="submit" class="submit-btn">Send Message</button>
+        </form>
+    </div>
+
+</body>
+</html>
