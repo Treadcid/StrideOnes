@@ -3,52 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Future of Sports Shoes</title>
+
+    <title>StrideOne - The Future of Sports Shoes</title>
+
     <style>
-        /* Reset margins and set up fonts */
+        /* Reset spacing and configure base fonts */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
         body {
-            background-color: #0b0c10;
-            color: #ffffff;
+            background: #000;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
+            scroll-behavior: smooth;
         }
 
-        /* Top Navigation Bar Styling */
+        /* =========================
+           TOP NAVIGATION BAR
+           ========================= */
+
         .navbar {
-            position: absolute;
+            position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             display: flex;
-            justify-content: flex-end; /* Pushes menu items to the right side */
+            justify-content: flex-end;
             padding: 2.5rem 8%;
             z-index: 100;
+            background: linear-gradient(
+                to bottom,
+                rgba(11,12,16,0.8),
+                transparent
+            );
+            backdrop-filter: blur(4px);
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem; /* Balanced space between links */
+            gap: 2.5rem;
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
             font-size: 1.15rem;
-            font-weight: 800; /* Extra bold text to show colors better */
+            font-weight: 800;
             letter-spacing: 2px;
             text-transform: uppercase;
             display: inline-block;
             transition: transform 0.3s ease, filter 0.3s ease;
         }
 
-        /* INTENSE NEON COLOR PROFILES */
+        /* NAVIGATION COLORS */
+
         .link-home {
             background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
@@ -71,62 +84,73 @@
             text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
         }
 
-        /* POWERFUL NEON HOVER SHADOW EFFECTS */
-        .link-home:hover {
+        .nav-links a:hover {
             transform: scale(1.15);
-            filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 5px #00ffff);
+            filter: drop-shadow(0 0 15px #00ffff);
         }
 
-        .link-about:hover {
-            transform: scale(1.15);
-            color: #df80ff;
-            text-shadow: 0 0 15px #bd00ff, 0 0 30px #bd00ff;
-        }
+        /* =========================
+           FIXED BACKGROUND
+           ========================= */
 
-        .link-contact:hover {
-            transform: scale(1.15);
-            color: #80b3ff;
-            text-shadow: 0 0 15px #0066ff, 0 0 30px #0066ff;
-        }
-
-        .link-support:hover {
-            transform: scale(1.15);
-            color: #ffffff;
-            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
-        }
-
-        /* Displays your screenshot full-screen as the background */
-        .hero-section {
-            position: relative;
+        .fixed-bg-wrapper {
+            position: fixed;
+            top: 0;
+            left: 0;
             width: 100%;
-            min-height: 100vh;
-            background: url('hero-bg.png') no-repeat center center;
+            height: 100vh;
+
+            background:
+                linear-gradient(
+                    to bottom,
+                    rgba(0, 0, 0, 0.85) 0%,
+                    rgba(0, 0, 0, 0.3) 50%,
+                    rgba(0, 0, 0, 0.85) 100%
+                ),
+                url("hero-bg.png") no-repeat center center;
+
             background-size: cover;
+            z-index: -1;
+        }
+
+        /* =========================
+           SECTION 1
+           ========================= */
+
+        .hero-landing {
+            width: 100%;
+            height: 100vh;
+            position: relative;
+
             display: flex;
             align-items: center;
+
             padding: 0 8%;
         }
 
-        /* Wraps the text so it stays on the left */
-        .content-box {
+        .original-content {
             max-width: 550px;
             z-index: 10;
-            margin-top: 4rem; /* Adds clearance under the absolute navbar */
         }
 
-        /* Main Heading Styling with Gradient Effects */
         .main-title {
             font-size: clamp(2.5rem, 5vw, 4.5rem);
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1.1;
             letter-spacing: 1px;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
         }
 
-        /* Matches the Canva neon blue/purple gradient */
+        /* FUTURE */
+
         .title-future {
-            background: linear-gradient(to right, #0052ff, #b500ff);
+            background: linear-gradient(
+                to right,
+                #0052ff,
+                #b500ff
+            );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -141,62 +165,418 @@
             display: block;
         }
 
-        /* Subheading Styling with Neon Blue to Yellow Gradient */
+        /* STEP CLOSER GRADIENT */
+
         .sub-title {
             font-size: clamp(1.1rem, 2vw, 1.5rem);
             font-weight: 600;
             line-height: 1.4;
             max-width: 420px;
-            
-            /* The magic gradient styling matching your image */
-            background: linear-gradient(to right, #00d2ff, #a8ff78, #fdf542);
+
+            background: linear-gradient(
+                to right,
+                #00d2ff,
+                #a8ff78,
+                #fdf542
+            );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
+
             display: inline-block;
         }
 
-        /* Mobile responsiveness */
-        @media (max-width: 900px) {
-            .navbar {
-                justify-content: center; /* Centers navigation links on mobile screens */
-                padding: 1.5rem 5%;
+        /* =========================
+           SCROLL HINT
+           ========================= */
+
+        .scroll-down-hint {
+            position: absolute;
+            bottom: 5vh;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            color: #ffffff;
+            font-size: 0.9rem;
+            font-weight: 700;
+
+            text-transform: uppercase;
+            letter-spacing: 2px;
+
+            opacity: 0.7;
+
+            animation: bounce 2s infinite;
+
+            text-shadow: 2px 2px 4px #000000;
+        }
+
+        @keyframes bounce {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translate(-50%, 0);
             }
+
+            40% {
+                transform: translate(-50%, -10px);
+            }
+
+            60% {
+                transform: translate(-50%, -5px);
+            }
+        }
+
+        /* =========================
+           SECTION 2
+           ========================= */
+
+        .hero-custom-slide {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        /* =========================
+           LEFT TITLE
+           ========================= */
+
+        .left-title {
+            position: absolute;
+
+            top: 100px;
+            left: 30px;
+
+            width: 500px;
+
+            border: 2px solid #8a2be2;
+
+            padding: 10px 25px 25px;
+
+            background: rgba(0, 0, 0, 0.5);
+
+            backdrop-filter: blur(2px);
+        }
+
+        .left-title h1 {
+            font-size: clamp(50px, 5vw, 72px);
+            line-height: 1.15;
+            font-weight: 900;
+
+            /* SAME GRADIENT AS STEP CLOSER */
+
+            background: linear-gradient(
+                to right,
+                #00d2ff,
+                #a8ff78,
+                #fdf542
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* =========================
+           RIGHT TITLE
+           ========================= */
+
+        .right-title {
+            position: absolute;
+
+            top: 110px;
+            right: 8%;
+
+            width: 520px;
+
+            text-align: center;
+        }
+
+        .right-title h2 {
+            font-size: clamp(35px, 4vw, 55px);
+            line-height: 1.2;
+            font-weight: 900;
+
+            /* SAME GRADIENT AS STEP CLOSER */
+
+            background: linear-gradient(
+                to right,
+                #00d2ff,
+                #a8ff78,
+                #fdf542
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* =========================
+           DESCRIPTION
+           ========================= */
+
+        .description {
+            position: absolute;
+
+            left: 0;
+            bottom: 120px;
+
+            width: 520px;
+
+            text-align: center;
+
+            font-size: 23px;
+            line-height: 1.45;
+
+            /* SAME GRADIENT AS STEP CLOSER */
+
+            background: linear-gradient(
+                to right,
+                #00d2ff,
+                #a8ff78,
+                #fdf542
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .description p {
+            margin-bottom: 38px;
+
+            text-shadow: 2px 2px 6px #000000;
+        }
+
+        /* =========================
+           SLOGAN
+           ========================= */
+
+        .slogan {
+            position: absolute;
+
+            right: 14%;
+            bottom: 85px;
+
+            font-size: 34px;
+            font-weight: 900;
+            font-style: italic;
+
+            line-height: 1.5;
+
+            /* SAME GRADIENT AS STEP CLOSER */
+
+            background: linear-gradient(
+                to right,
+                #00d2ff,
+                #a8ff78,
+                #fdf542
+            );
+
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+
+            text-shadow: 2px 2px 6px #000000;
+        }
+
+        /* =========================
+           MOBILE RESPONSIVENESS
+           ========================= */
+
+        @media (max-width: 900px) {
+
+            .navbar {
+                padding: 1.5rem 5%;
+                justify-content: center;
+            }
+
             .nav-links {
                 gap: 1.2rem;
             }
+
             .nav-links a {
                 font-size: 0.85rem;
             }
-            .hero-section {
-                padding: 25% 5% 5% 5%;
-                align-items: flex-start;
+
+            .hero-landing {
+                padding-top: 12vh;
+                align-items: center;
+            }
+
+            .left-title {
+                top: 80px;
+                left: 15px;
+                width: 45%;
+            }
+
+            .right-title {
+                top: 90px;
+                right: 3%;
+                width: 45%;
+            }
+
+            .description {
+                width: 45%;
+                bottom: 50px;
+                font-size: 15px;
+            }
+
+            .slogan {
+                right: 5%;
+                bottom: 25px;
+                font-size: 20px;
             }
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header Navigation Section -->
+    <!-- MASTER BACKGROUND -->
+
+    <div class="fixed-bg-wrapper"></div>
+
+
+    <!-- =========================
+         NAVIGATION
+         ========================= -->
+
     <header class="navbar">
+
         <ul class="nav-links">
-            <li><a href="index.html" class="link-home">Home</a></li>
-            <li><a href="about.html" class="link-about">About</a></li> <!-- Points to your new standalone page -->
-            <li><a href="#contact" class="link-contact">Contact</a></li>
-            <li><a href="#support" class="link-support">Contact Support</a></li>
+
+            <li>
+                <a href="index.html" class="link-home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html" class="link-about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="link-contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="support.html" class="link-support">
+                    Contact Support
+                </a>
+            </li>
+
         </ul>
+
     </header>
 
-    <!-- Hero Showcase Section -->
-    <section id="home" class="hero-section">
-        
-        <!-- Sharp Text Overlaid on top of your screenshot background -->
-        <div class="content-box">
+
+    <!-- =========================
+         SECTION 1
+         ========================= -->
+
+    <section class="hero-landing">
+
+        <div class="original-content">
+
             <h1 class="main-title">
-                <span class="title-future">The Future</span>
-                <span class="title-sports">Of Sports</span>
-                <span class="title-shoes">Shoes</span>
+
+                <span class="title-future">
+                    The Future
+                </span>
+
+                <span class="title-sports">
+                    Of Sports
+                </span>
+
+                <span class="title-shoes">
+                    Shoes
+                </span>
+
             </h1>
-            <p class="sub-title">Step closer to who you wanna be with every step</p>
+
+            <p class="sub-title">
+                Step closer to who you wanna be with every step
+            </p>
+
+        </div>
+
+
+        <div class="scroll-down-hint">
+            ⬇ Scroll Down For More ⬇
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         SECTION 2
+         ========================= -->
+
+    <section class="hero-custom-slide">
+
+
+        <!-- LEFT TITLE -->
+
+        <div class="left-title">
+
+            <h1>
+                Run strong<br>
+                Feel light
+            </h1>
+
+        </div>
+
+
+        <!-- RIGHT TITLE -->
+
+        <div class="right-title">
+
+            <h2>
+                Become who you<br>
+                always wanted to be
+            </h2>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="description">
+
+            <p>
+                Run with power and convenience with the all new
+                StrideOne's.
+            </p>
+
+            <p>
+                With the powerful and sleek design, it is built for
+                power and speed.
+            </p>
+
+            <p>
+                Small enough to fit into luggage, impactful
+                enough to change your life.
+            </p>
+
+        </div>
+
+
+        <!-- SLOGAN -->
+
+        <div class="slogan">
+
+            FEEL THE SPEED<br>
+            OWN THE PACE
+
         </div>
 
     </section>
