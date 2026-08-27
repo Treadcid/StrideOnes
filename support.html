@@ -1,11 +1,19 @@
 <!DOCTYPE html>
+
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Support Center - StrideOnes</title>
+
     <style>
+
         /* Reset spacing and configure base fonts */
+
         * {
             margin: 0;
             padding: 0;
@@ -14,6 +22,7 @@
         }
 
         /* Displays your laser background full-screen and keeps it locked */
+
         body {
             background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
             background-size: cover;
@@ -28,6 +37,7 @@
         }
 
         /* Top Fixed Navigation Bar Layout Matrix */
+
         .navbar {
             width: 100%;
             display: flex;
@@ -54,6 +64,7 @@
         }
 
         /* NEON NAVIGATION GLOW CONFIGURATIONS */
+
         .link-home {
             background: linear-gradient(45deg, #00ffff, #ff00ff);
             -webkit-background-clip: text;
@@ -61,13 +72,28 @@
             filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
         }
 
-        .link-about { color: #bd00ff; text-shadow: 0 0 8px rgba(189, 0, 255, 0.4); }
-        .link-contact { color: #0066ff; text-shadow: 0 0 8px rgba(0, 102, 255, 0.4); }
-        .link-support { color: #00ffcc; text-shadow: 0 0 8px rgba(0, 255, 204, 0.4); }
+        .link-about {
+            color: #bd00ff;
+            text-shadow: 0 0 8px rgba(189, 0, 255, 0.4);
+        }
 
-        .nav-links a:hover { transform: scale(1.15); filter: drop-shadow(0 0 15px #00ffff); }
+        .link-contact {
+            color: #0066ff;
+            text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
+        }
+
+        .link-support {
+            color: #00ffcc;
+            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+        }
+
+        .nav-links a:hover {
+            transform: scale(1.15);
+            filter: drop-shadow(0 0 15px #00ffff);
+        }
 
         /* Container box for your support hub card wrapper */
+
         .support-container {
             max-width: 800px;
             width: 100%;
@@ -75,8 +101,10 @@
             margin-top: 4vh;
             background: rgba(0, 0, 0, 0.75);
             border-radius: 16px;
-            border: 2px solid #00ffcc; /* Glowing toxic neon green frame border */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 255, 204, 0.2);
+            border: 2px solid #00ffcc;
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 255, 204, 0.2);
             backdrop-filter: blur(4px);
             text-align: center;
             z-index: 10;
@@ -100,6 +128,7 @@
         }
 
         /* Help Desk Grid Layout */
+
         .help-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -121,11 +150,26 @@
             box-shadow: 0 5px 15px rgba(0, 255, 204, 0.1);
         }
 
-        .card-icon { font-size: 2.5rem; margin-bottom: 1rem; }
-        .card-title { font-size: 1.25rem; font-weight: 700; color: #ffffff; margin-bottom: 0.5rem; }
-        .card-desc { font-size: 0.95rem; color: #a0aec0; line-height: 1.5; }
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card-title {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: #a0aec0;
+            line-height: 1.5;
+        }
 
         /* Integrated Formspree Support Form inside the layout */
+
         .support-form-box {
             border-top: 1px solid rgba(0, 255, 204, 0.2);
             padding-top: 3rem;
@@ -142,7 +186,10 @@
             text-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
         }
 
-        .input-group { margin-bottom: 1.8rem; }
+        .input-group {
+            margin-bottom: 1.8rem;
+        }
+
         .input-group label {
             display: block;
             font-size: 0.9rem;
@@ -153,7 +200,8 @@
             color: #b3ffff;
         }
 
-        .input-group input, .input-group textarea {
+        .input-group input,
+        .input-group textarea {
             width: 100%;
             padding: 1.1rem;
             background: rgba(11, 12, 16, 0.85);
@@ -165,13 +213,17 @@
             transition: all 0.3s ease;
         }
 
-        .input-group input:focus, .input-group textarea:focus {
+        .input-group input:focus,
+        .input-group textarea:focus {
             border-color: #00ffcc;
             box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
             background: rgba(11, 12, 16, 0.95);
         }
 
-        .input-group textarea { resize: vertical; min-height: 130px; }
+        .input-group textarea {
+            resize: vertical;
+            min-height: 130px;
+        }
 
         .submit-btn {
             width: 100%;
@@ -197,16 +249,34 @@
         }
 
         @media (max-width: 900px) {
-            .navbar { padding: 1.5rem 2%; justify-content: center; }
-            .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.85rem; }
-            .support-container { margin-top: 2vh; padding: 2.5rem 1.5rem; }
+
+            .navbar {
+                padding: 1.5rem 2%;
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap: 1.2rem;
+            }
+
+            .nav-links a {
+                font-size: 0.85rem;
+            }
+
+            .support-container {
+                margin-top: 2vh;
+                padding: 2.5rem 1.5rem;
+            }
         }
+
     </style>
+
 </head>
+
 <body>
 
     <!-- Header Navigation Section Link Bar -->
+
     <header class="navbar">
         <ul class="nav-links">
             <li><a href="index.html" class="link-home">Home</a></li>
@@ -217,49 +287,132 @@
     </header>
 
     <!-- Support Center Main Hub Interface Container -->
+
     <div class="support-container">
-        <h2 class="support-heading">Support Center</h2>
-        <p class="support-text">Our tech response matrix handles tracking calibration configurations 24/7.</p>
-        
+
+        <h2 class="support-heading">
+            Support Center
+        </h2>
+
+        <p class="support-text">
+            Our tech response matrix handles tracking calibration configurations 24/7.
+        </p>
+
         <!-- Info Cards Grid Row -->
+
         <div class="help-grid">
+
             <div class="help-card">
+
                 <div class="card-icon">🛠️</div>
-                <h3 class="card-title">Hardware Help</h3>
-                <p class="card-desc">Troubleshoot calibration heel dials or motorized omni rollers.</p>
+
+                <h3 class="card-title">
+                    Hardware Help
+                </h3>
+
+                <p class="card-desc">
+                    Troubleshoot calibration heel dials or motorized omni rollers.
+                </p>
+
             </div>
+
             <div class="help-card">
+
                 <div class="card-icon">📱</div>
-                <h3 class="card-title">App Syncing</h3>
-                <p class="card-desc">Resolve Bluetooth ecosystem links or system firmware bugs.</p>
+
+                <h3 class="card-title">
+                    App Syncing
+                </h3>
+
+                <p class="card-desc">
+                    Resolve Bluetooth ecosystem links or system firmware bugs.
+                </p>
+
             </div>
+
             <div class="help-card">
+
                 <div class="card-icon">📦</div>
-                <h3 class="card-title">Order Status</h3>
-                <p class="card-desc">Track tracking numbers, drop passes, or routing node logs.</p>
+
+                <h3 class="card-title">
+                    Order Status
+                </h3>
+
+                <p class="card-desc">
+                    Track tracking numbers, drop passes, or routing node logs.
+                </p>
+
             </div>
+
         </div>
 
         <!-- Functional Formspree Form Box -->
+
         <div class="support-form-box">
-            <h3 class="form-sub-title">Open a Support Ticket</h3>
+
+            <h3 class="form-sub-title">
+                Open a Support Ticket
+            </h3>
+
             <form action="https://formspree.io" method="POST">
+
                 <div class="input-group">
-                    <label for="sup-name">Full Name</label>
-                    <input type="text" id="sup-name" name="name" required placeholder="Enter your name">
+
+                    <label for="sup-name">
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="sup-name"
+                        name="name"
+                        required
+                        placeholder="Enter your name"
+                    >
+
                 </div>
+
                 <div class="input-group">
-                    <label for="sup-email">Email Address</label>
-                    <input type="email" id="sup-email" name="email" required placeholder="Enter your email address">
+
+                    <label for="sup-email">
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="sup-email"
+                        name="email"
+                        required
+                        placeholder="Enter your email address"
+                    >
+
                 </div>
+
                 <div class="input-group">
-                    <label for="sup-msg">Issue Description</label>
-                    <textarea id="sup-msg" name="message" required placeholder="Describe what support system assistance you need with your StrideOnes..."></textarea>
+
+                    <label for="sup-msg">
+                        Issue Description
+                    </label>
+
+                    <textarea
+                        id="sup-msg"
+                        name="message"
+                        required
+                        placeholder="Describe what support system assistance you need with your StrideOnes..."
+                    ></textarea>
+
                 </div>
-                <button type="submit" class="submit-btn">Submit Ticket</button>
+
+                <button type="submit" class="submit-btn">
+                    Submit Ticket
+                </button>
+
             </form>
+
         </div>
+
     </div>
 
 </body>
+
 </html>
