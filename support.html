@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
@@ -10,9 +9,17 @@
 
     <title>Support Center - StrideOnes</title>
 
+    <meta name="description" content="Get support for StrideOnes smart footwear, including hardware help, app syncing, order status, calibration, and technical assistance.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://strideones.pages.dev/support.html">
+
     <style>
 
-        /* Reset spacing and configure base fonts */
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
@@ -21,252 +28,883 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Displays your laser background full-screen and keeps it locked */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* =========================================
+           BODY
+        ========================================= */
 
         body {
             background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
             background-size: cover;
+
             color: #00ffcc;
+
             min-height: 100vh;
+            min-height: 100svh;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 0 5% 4rem 5%;
+
+            padding: 0 5% 4rem;
+
+            overflow-x: hidden;
             overflow-y: auto;
         }
 
-        /* Top Fixed Navigation Bar Layout Matrix */
+        /* =========================================
+           NAVIGATION
+        ========================================= */
 
         .navbar {
             width: 100%;
+
             display: flex;
             justify-content: flex-end;
-            padding: 2.5rem 4%;
+            align-items: center;
+
+            padding:
+                clamp(1.2rem, 3vw, 2.5rem)
+                clamp(1rem, 4vw, 4%);
+
             z-index: 100;
         }
 
         .nav-links {
             display: flex;
+
             list-style: none;
-            gap: 2.5rem;
+
+            gap:
+                clamp(1rem, 2.5vw, 2.5rem);
+
             align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             text-decoration: none;
-            font-size: 1.15rem;
+
+            font-size:
+                clamp(0.7rem, 1.3vw, 1.15rem);
+
             font-weight: 800;
-            letter-spacing: 2px;
+
+            letter-spacing:
+                clamp(0.8px, 0.2vw, 2px);
+
             text-transform: uppercase;
+
             display: inline-block;
-            transition: transform 0.3s ease, filter 0.3s ease;
+
+            white-space: nowrap;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease,
+                color 0.3s ease;
         }
 
-        /* NEON NAVIGATION GLOW CONFIGURATIONS */
+        /* =========================================
+           NEON NAVIGATION
+        ========================================= */
 
         .link-home {
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            background:
+                linear-gradient(45deg, #00ffff, #ff00ff);
+
             -webkit-background-clip: text;
+            background-clip: text;
+
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+
+            filter:
+                drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
         }
 
         .link-about {
             color: #bd00ff;
-            text-shadow: 0 0 8px rgba(189, 0, 255, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(189, 0, 255, 0.4);
         }
 
         .link-contact {
             color: #0066ff;
-            text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(0, 102, 255, 0.4);
         }
 
         .link-support {
             color: #00ffcc;
-            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 204, 0.4);
         }
+
+        /* =========================================
+           NAVIGATION HOVER
+        ========================================= */
 
         .nav-links a:hover {
             transform: scale(1.15);
-            filter: drop-shadow(0 0 15px #00ffff);
+
+            filter:
+                drop-shadow(0 0 15px #00ffff);
         }
 
-        /* Container box for your support hub card wrapper */
+        /* =========================================
+           SUPPORT CONTAINER
+        ========================================= */
 
         .support-container {
-            max-width: 800px;
-            width: 100%;
-            padding: 3.5rem 3rem;
-            margin-top: 4vh;
-            background: rgba(0, 0, 0, 0.75);
+            width: min(800px, 100%);
+
+            padding:
+                clamp(1.5rem, 5vw, 3.5rem)
+                clamp(1.2rem, 5vw, 3rem);
+
+            margin-top:
+                clamp(1.5rem, 4vh, 4vh);
+
+            background:
+                rgba(0, 0, 0, 0.75);
+
             border-radius: 16px;
-            border: 2px solid #00ffcc;
+
+            border:
+                2px solid #00ffcc;
+
             box-shadow:
                 0 20px 40px rgba(0, 0, 0, 0.8),
                 0 0 30px rgba(0, 255, 204, 0.2);
+
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+
             text-align: center;
+
             z-index: 10;
         }
 
+        /* =========================================
+           SUPPORT HEADING
+        ========================================= */
+
         .support-heading {
-            font-size: clamp(2.2rem, 4vw, 3rem);
+            font-size:
+                clamp(2rem, 5vw, 3rem);
+
             font-weight: 900;
+
             text-transform: uppercase;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
+
+            margin-bottom:
+                clamp(1rem, 3vw, 1.5rem);
+
+            letter-spacing:
+                clamp(0.5px, 0.2vw, 1px);
+
             color: #00ffcc;
-            text-shadow: 0 0 10px rgba(0, 255, 204, 0.6);
+
+            text-shadow:
+                0 0 10px rgba(0, 255, 204, 0.6);
+
+            line-height: 1.1;
+
+            overflow-wrap: break-word;
         }
+
+        /* =========================================
+           SUPPORT INTRO TEXT
+        ========================================= */
 
         .support-text {
-            font-size: 1.15rem;
+            font-size:
+                clamp(0.95rem, 2vw, 1.15rem);
+
             line-height: 1.8;
+
             color: #e2e8f0;
-            margin-bottom: 3.5rem;
+
+            margin-bottom:
+                clamp(2rem, 5vw, 3.5rem);
         }
 
-        /* Help Desk Grid Layout */
+        /* =========================================
+           HELP CARD GRID
+        ========================================= */
 
         .help-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3.5rem;
+
+            grid-template-columns:
+                repeat(auto-fit, minmax(220px, 1fr));
+
+            gap:
+                clamp(1rem, 3vw, 2rem);
+
+            margin-bottom:
+                clamp(2rem, 5vw, 3.5rem);
         }
 
+        /* =========================================
+           HELP CARDS
+        ========================================= */
+
         .help-card {
-            background: rgba(11, 12, 16, 0.6);
-            padding: 2rem 1.5rem;
+            background:
+                rgba(11, 12, 16, 0.6);
+
+            padding:
+                clamp(1.2rem, 3vw, 2rem)
+                clamp(1rem, 2.5vw, 1.5rem);
+
             border-radius: 12px;
-            border: 1px solid rgba(0, 255, 204, 0.15);
-            transition: transform 0.3s ease, border-color 0.3s ease;
+
+            border:
+                1px solid rgba(0, 255, 204, 0.15);
+
+            transition:
+                transform 0.3s ease,
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
+
+            min-width: 0;
         }
 
         .help-card:hover {
-            transform: translateY(-5px);
-            border-color: #00ffcc;
-            box-shadow: 0 5px 15px rgba(0, 255, 204, 0.1);
+            transform:
+                translateY(-5px);
+
+            border-color:
+                #00ffcc;
+
+            box-shadow:
+                0 5px 15px rgba(0, 255, 204, 0.1);
         }
+
+        /* =========================================
+           CARD ICON
+        ========================================= */
 
         .card-icon {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
+            font-size:
+                clamp(2rem, 5vw, 2.5rem);
+
+            margin-bottom:
+                1rem;
         }
+
+        /* =========================================
+           CARD TITLE
+        ========================================= */
 
         .card-title {
-            font-size: 1.25rem;
+            font-size:
+                clamp(1.05rem, 2.5vw, 1.25rem);
+
             font-weight: 700;
+
             color: #ffffff;
-            margin-bottom: 0.5rem;
+
+            margin-bottom:
+                0.5rem;
+
+            line-height: 1.3;
         }
 
+        /* =========================================
+           CARD DESCRIPTION
+        ========================================= */
+
         .card-desc {
-            font-size: 0.95rem;
+            font-size:
+                clamp(0.85rem, 1.8vw, 0.95rem);
+
             color: #a0aec0;
+
             line-height: 1.5;
         }
 
-        /* Integrated Formspree Support Form inside the layout */
+        /* =========================================
+           SUPPORT FORM
+        ========================================= */
 
         .support-form-box {
-            border-top: 1px solid rgba(0, 255, 204, 0.2);
-            padding-top: 3rem;
+            border-top:
+                1px solid rgba(0, 255, 204, 0.2);
+
+            padding-top:
+                clamp(2rem, 4vw, 3rem);
+
             text-align: left;
         }
 
+        /* =========================================
+           FORM SUBTITLE
+        ========================================= */
+
         .form-sub-title {
-            font-size: 1.5rem;
+            font-size:
+                clamp(1.2rem, 3vw, 1.5rem);
+
             font-weight: 800;
+
             text-transform: uppercase;
+
             color: #ffffff;
-            margin-bottom: 2rem;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+
+            margin-bottom:
+                clamp(1.3rem, 3vw, 2rem);
+
+            letter-spacing:
+                clamp(0.3px, 0.1vw, 0.5px);
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 204, 0.3);
+
+            line-height: 1.3;
         }
 
+        /* =========================================
+           INPUT GROUP
+        ========================================= */
+
         .input-group {
-            margin-bottom: 1.8rem;
+            margin-bottom:
+                clamp(1.2rem, 3vw, 1.8rem);
         }
+
+        /* =========================================
+           LABEL
+        ========================================= */
 
         .input-group label {
             display: block;
-            font-size: 0.9rem;
+
+            font-size:
+                clamp(0.78rem, 1.8vw, 0.9rem);
+
             font-weight: 700;
+
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.5rem;
+
+            letter-spacing:
+                clamp(0.5px, 0.15vw, 1px);
+
+            margin-bottom:
+                0.5rem;
+
             color: #b3ffff;
         }
+
+        /* =========================================
+           INPUT & TEXTAREA
+        ========================================= */
 
         .input-group input,
         .input-group textarea {
             width: 100%;
-            padding: 1.1rem;
-            background: rgba(11, 12, 16, 0.85);
-            border: 1px solid rgba(0, 255, 204, 0.25);
+
+            padding:
+                clamp(0.9rem, 2.5vw, 1.1rem);
+
+            background:
+                rgba(11, 12, 16, 0.85);
+
+            border:
+                1px solid rgba(0, 255, 204, 0.25);
+
             border-radius: 8px;
+
             color: #ffffff;
-            font-size: 1.05rem;
+
+            font-size:
+                clamp(0.95rem, 2vw, 1.05rem);
+
             outline: none;
-            transition: all 0.3s ease;
+
+            transition:
+                all 0.3s ease;
+
+            -webkit-appearance: none;
+            appearance: none;
         }
+
+        /* =========================================
+           INPUT FOCUS
+        ========================================= */
 
         .input-group input:focus,
         .input-group textarea:focus {
-            border-color: #00ffcc;
-            box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
-            background: rgba(11, 12, 16, 0.95);
+            border-color:
+                #00ffcc;
+
+            box-shadow:
+                0 0 15px rgba(0, 255, 204, 0.4);
+
+            background:
+                rgba(11, 12, 16, 0.95);
         }
+
+        /* =========================================
+           PLACEHOLDER
+        ========================================= */
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color:
+                rgba(179, 255, 255, 0.55);
+        }
+
+        /* =========================================
+           TEXTAREA
+        ========================================= */
 
         .input-group textarea {
             resize: vertical;
-            min-height: 130px;
+
+            min-height:
+                clamp(120px, 20vw, 130px);
         }
+
+        /* =========================================
+           SUBMIT BUTTON
+        ========================================= */
 
         .submit-btn {
             width: 100%;
-            padding: 1.1rem;
+
+            padding:
+                clamp(0.9rem, 2.5vw, 1.1rem);
+
             background: transparent;
-            border: 2px solid #00ffcc;
+
+            border:
+                2px solid #00ffcc;
+
             border-radius: 30px;
+
             color: #00ffcc;
-            font-size: 1.15rem;
+
+            font-size:
+                clamp(0.95rem, 2.2vw, 1.15rem);
+
             font-weight: 800;
+
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+
+            letter-spacing:
+                clamp(0.8px, 0.2vw, 1.5px);
+
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 204, 0.2);
+
+            transition:
+                all 0.3s ease;
+
+            box-shadow:
+                0 0 10px rgba(0, 255, 204, 0.2);
         }
 
+        /* =========================================
+           BUTTON HOVER
+        ========================================= */
+
         .submit-btn:hover {
-            background: #00ffcc;
-            color: #0b0c10;
-            box-shadow: 0 0 25px #00ffcc, 0 0 5px #00ffcc;
-            transform: scale(1.02);
+            background:
+                #00ffcc;
+
+            color:
+                #0b0c10;
+
+            box-shadow:
+                0 0 25px #00ffcc,
+                0 0 5px #00ffcc;
+
+            transform:
+                scale(1.02);
         }
+
+        /* =========================================
+           BUTTON ACTIVE
+        ========================================= */
+
+        .submit-btn:active {
+            transform:
+                scale(0.98);
+        }
+
+        /* =========================================
+           TABLETS
+        ========================================= */
 
         @media (max-width: 900px) {
 
+            body {
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
             .navbar {
-                padding: 1.5rem 2%;
-                justify-content: center;
+                padding:
+                    1.5rem 2%;
+
+                justify-content:
+                    center;
             }
 
             .nav-links {
-                gap: 1.2rem;
+                gap:
+                    1.2rem;
             }
 
             .nav-links a {
-                font-size: 0.85rem;
+                font-size:
+                    0.85rem;
             }
 
             .support-container {
-                margin-top: 2vh;
-                padding: 2.5rem 1.5rem;
+                margin-top:
+                    2vh;
+
+                padding:
+                    2.5rem 1.5rem;
             }
+
+        }
+
+        /* =========================================
+           PHONES
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-attachment:
+                    scroll;
+
+                padding:
+                    0 1rem 2rem;
+            }
+
+            .navbar {
+                width: 100%;
+
+                padding:
+                    1.2rem 0.25rem 0.8rem;
+
+                justify-content:
+                    center;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                gap:
+                    0.65rem 0.9rem;
+
+                justify-content:
+                    center;
+            }
+
+            .nav-links a {
+                font-size:
+                    clamp(0.62rem, 2.7vw, 0.78rem);
+
+                letter-spacing:
+                    0.5px;
+            }
+
+            .support-container {
+                width: 100%;
+
+                margin-top:
+                    1.5rem;
+
+                padding:
+                    1.5rem 1.1rem 1.7rem;
+
+                border-radius:
+                    12px;
+            }
+
+            .support-heading {
+                font-size:
+                    clamp(1.8rem, 9vw, 2.5rem);
+
+                margin-bottom:
+                    1rem;
+            }
+
+            .support-text {
+                font-size:
+                    0.95rem;
+
+                line-height:
+                    1.7;
+
+                margin-bottom:
+                    2rem;
+            }
+
+            .help-grid {
+                grid-template-columns:
+                    1fr;
+
+                gap:
+                    1rem;
+
+                margin-bottom:
+                    2rem;
+            }
+
+            .help-card {
+                padding:
+                    1.25rem;
+            }
+
+            .card-icon {
+                font-size:
+                    2rem;
+
+                margin-bottom:
+                    0.7rem;
+            }
+
+            .support-form-box {
+                padding-top:
+                    1.8rem;
+            }
+
+            .form-sub-title {
+                font-size:
+                    1.15rem;
+
+                margin-bottom:
+                    1.4rem;
+            }
+
+            .input-group {
+                margin-bottom:
+                    1.2rem;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding:
+                    0.9rem;
+
+                font-size:
+                    1rem;
+            }
+
+            .input-group textarea {
+                min-height:
+                    130px;
+            }
+
+            .submit-btn {
+                padding:
+                    0.95rem;
+
+                font-size:
+                    0.95rem;
+            }
+
+        }
+
+        /* =========================================
+           VERY SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            body {
+                padding:
+                    0 0.7rem 1.5rem;
+            }
+
+            .navbar {
+                padding-top:
+                    1rem;
+            }
+
+            .nav-links {
+                gap:
+                    0.5rem 0.7rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.58rem;
+
+                letter-spacing:
+                    0.3px;
+            }
+
+            .support-container {
+                padding:
+                    1.2rem 0.9rem 1.4rem;
+            }
+
+            .support-heading {
+                font-size:
+                    1.7rem;
+            }
+
+            .support-text {
+                font-size:
+                    0.88rem;
+            }
+
+            .help-card {
+                padding:
+                    1rem;
+            }
+
+            .card-title {
+                font-size:
+                    1rem;
+            }
+
+            .card-desc {
+                font-size:
+                    0.85rem;
+            }
+
+            .form-sub-title {
+                font-size:
+                    1rem;
+            }
+
+            .input-group label {
+                font-size:
+                    0.72rem;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding:
+                    0.8rem;
+
+                font-size:
+                    0.95rem;
+            }
+
+            .submit-btn {
+                font-size:
+                    0.85rem;
+
+                letter-spacing:
+                    0.7px;
+            }
+
+        }
+
+        /* =========================================
+           LANDSCAPE PHONES
+        ========================================= */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .navbar {
+                padding:
+                    0.8rem 2%;
+            }
+
+            .nav-links {
+                gap:
+                    1rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.7rem;
+            }
+
+            .support-container {
+                margin-top:
+                    1rem;
+
+                padding:
+                    1.5rem;
+            }
+
+            .support-heading {
+                font-size:
+                    2rem;
+
+                margin-bottom:
+                    0.8rem;
+            }
+
+            .support-text {
+                margin-bottom:
+                    1.5rem;
+            }
+
+            .help-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
+
+                gap:
+                    0.8rem;
+            }
+
+            .help-card {
+                padding:
+                    1rem;
+            }
+
+            .card-icon {
+                font-size:
+                    1.8rem;
+
+                margin-bottom:
+                    0.5rem;
+            }
+
+            .support-form-box {
+                padding-top:
+                    1.5rem;
+            }
+
+            .input-group {
+                margin-bottom:
+                    0.9rem;
+            }
+
+            .input-group textarea {
+                min-height:
+                    100px;
+            }
+
+        }
+
+        /* =========================================
+           LARGE SCREENS
+        ========================================= */
+
+        @media (min-width: 1600px) {
+
+            .support-container {
+                width:
+                    min(900px, 70vw);
+            }
+
+            .support-heading {
+                font-size:
+                    3.2rem;
+            }
+
         }
 
     </style>
@@ -275,40 +913,68 @@
 
 <body>
 
-    <!-- Header Navigation Section Link Bar -->
+    <!-- Header Navigation Section -->
 
     <header class="navbar">
+
         <ul class="nav-links">
-            <li><a href="index.html" class="link-home">Home</a></li>
-            <li><a href="about.html" class="link-about">About</a></li>
-            <li><a href="contact.html" class="link-contact">Contact</a></li>
-            <li><a href="support.html" class="link-support">Contact Support</a></li>
+
+            <li>
+                <a href="index.html" class="link-home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html" class="link-about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="link-contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="support.html" class="link-support">
+                    Contact Support
+                </a>
+            </li>
+
         </ul>
+
     </header>
 
-    <!-- Support Center Main Hub Interface Container -->
 
-    <div class="support-container">
+    <!-- Support Center -->
 
-        <h2 class="support-heading">
+    <main class="support-container">
+
+        <h1 class="support-heading">
             Support Center
-        </h2>
+        </h1>
+
 
         <p class="support-text">
             Our tech response matrix handles tracking calibration configurations 24/7.
         </p>
 
-        <!-- Info Cards Grid Row -->
+
+        <!-- Help Cards -->
 
         <div class="help-grid">
 
             <div class="help-card">
 
-                <div class="card-icon">🛠️</div>
+                <div class="card-icon">
+                    🛠️
+                </div>
 
-                <h3 class="card-title">
+                <h2 class="card-title">
                     Hardware Help
-                </h3>
+                </h2>
 
                 <p class="card-desc">
                     Troubleshoot calibration heel dials or motorized omni rollers.
@@ -316,13 +982,16 @@
 
             </div>
 
+
             <div class="help-card">
 
-                <div class="card-icon">📱</div>
+                <div class="card-icon">
+                    📱
+                </div>
 
-                <h3 class="card-title">
+                <h2 class="card-title">
                     App Syncing
-                </h3>
+                </h2>
 
                 <p class="card-desc">
                     Resolve Bluetooth ecosystem links or system firmware bugs.
@@ -330,13 +999,16 @@
 
             </div>
 
+
             <div class="help-card">
 
-                <div class="card-icon">📦</div>
+                <div class="card-icon">
+                    📦
+                </div>
 
-                <h3 class="card-title">
+                <h2 class="card-title">
                     Order Status
-                </h3>
+                </h2>
 
                 <p class="card-desc">
                     Track tracking numbers, drop passes, or routing node logs.
@@ -346,15 +1018,22 @@
 
         </div>
 
-        <!-- Functional Formspree Form Box -->
+
+        <!-- Support Form -->
 
         <div class="support-form-box">
 
-            <h3 class="form-sub-title">
+            <h2 class="form-sub-title">
                 Open a Support Ticket
-            </h3>
+            </h2>
 
-            <form action="https://formspree.io/f/mljerkek" method="POST">
+
+            <form
+                action="https://formspree.io/f/mljerkek"
+                method="POST"
+            >
+
+                <!-- Full Name -->
 
                 <div class="input-group">
 
@@ -367,10 +1046,14 @@
                         id="sup-name"
                         name="name"
                         required
+                        autocomplete="name"
                         placeholder="Enter your name"
                     >
 
                 </div>
+
+
+                <!-- Email -->
 
                 <div class="input-group">
 
@@ -383,10 +1066,14 @@
                         id="sup-email"
                         name="email"
                         required
+                        autocomplete="email"
                         placeholder="Enter your email address"
                     >
 
                 </div>
+
+
+                <!-- Issue -->
 
                 <div class="input-group">
 
@@ -403,7 +1090,13 @@
 
                 </div>
 
-                <button type="submit" class="submit-btn">
+
+                <!-- Submit -->
+
+                <button
+                    type="submit"
+                    class="submit-btn"
+                >
                     Submit Ticket
                 </button>
 
@@ -411,7 +1104,7 @@
 
         </div>
 
-    </div>
+    </main>
 
 </body>
 
