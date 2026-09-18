@@ -4,9 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>StrideOne - The Future of Sports Shoes</title>
+    <title>Strideones - The Future of Sports Shoes</title>
 
-<meta name="description" content="Step closer to who you wanna be with the all-new StrideOnes. Experience power, speed, and a sleek futuristic design built to change your life with every step.">
+    <meta name="description" content="Strideones is the future of sports shoes. Discover innovative smart footwear designed for power, speed, convenience, and a futuristic experience with every step.">
+
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://strideones.pages.dev/">
 
     <style>
         /* ========================================================
@@ -19,12 +22,20 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: #0b0c10;
             color: #ffffff;
             font-family: Arial, Helvetica, sans-serif;
             overflow-x: hidden;
-            scroll-behavior: smooth;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
         }
 
         /* ========================================================
@@ -38,12 +49,12 @@
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            padding: 2.5rem 8%;
+            padding: clamp(1rem, 3vw, 2.5rem) clamp(1rem, 8vw, 8%);
             z-index: 100;
 
             background: linear-gradient(
                 to bottom,
-                rgba(11, 12, 16, 0.5),
+                rgba(11, 12, 16, 0.6),
                 transparent
             );
         }
@@ -51,18 +62,19 @@
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+            gap: clamp(0.8rem, 3vw, 2.5rem);
             align-items: center;
         }
 
         .nav-links a {
             text-decoration: none;
-            font-size: 1.15rem;
+            font-size: clamp(0.65rem, 1.3vw, 1.15rem);
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: clamp(0.5px, 0.2vw, 2px);
             text-transform: uppercase;
             display: inline-block;
             transition: transform 0.3s ease, filter 0.3s ease;
+            white-space: nowrap;
         }
 
         .link-home {
@@ -88,7 +100,7 @@
         }
 
         .nav-links a:hover {
-            transform: scale(1.15);
+            transform: scale(1.1);
             filter: drop-shadow(0 0 15px #00ffff);
         }
 
@@ -98,11 +110,13 @@
 
         .hero-landing {
             width: 100%;
-            height: 100vh;
+            min-height: 100svh;
             position: relative;
+
             display: flex;
             align-items: center;
-            padding: 0 8%;
+
+            padding: clamp(5rem, 12vh, 8rem) clamp(1.2rem, 8vw, 8%);
 
             background:
                 linear-gradient(
@@ -114,25 +128,36 @@
                 url("hero-bg.png") no-repeat center center;
 
             background-size: cover;
+            background-position: center;
             image-rendering: -webkit-optimize-contrast;
         }
 
         .original-content {
-            max-width: 550px;
+            width: 100%;
+            max-width: min(550px, 90vw);
             z-index: 10;
         }
 
+        /* ========================================================
+           MAIN TITLE
+           ======================================================== */
+
         .main-title {
-            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-size: clamp(2.3rem, 7vw, 4.5rem);
             font-weight: 900;
             text-transform: uppercase;
             line-height: 1.1;
-            letter-spacing: 1px;
-            margin-bottom: 1.5rem;
+            letter-spacing: clamp(0.5px, 0.2vw, 1px);
+            margin-bottom: clamp(1rem, 3vw, 1.5rem);
         }
 
         .title-future {
-            background: linear-gradient(to right, #0052ff, #b500ff);
+            background: linear-gradient(
+                to right,
+                #0052ff,
+                #b500ff
+            );
+
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
@@ -152,10 +177,10 @@
            ======================================================== */
 
         .sub-title {
-            font-size: clamp(1.1rem, 2vw, 1.5rem);
+            font-size: clamp(1rem, 2.5vw, 1.5rem);
             font-weight: 600;
             line-height: 1.4;
-            max-width: 420px;
+            max-width: min(420px, 90vw);
             display: inline-block;
 
             background: linear-gradient(
@@ -175,20 +200,22 @@
 
         .scroll-down-hint {
             position: absolute;
-            bottom: 5vh;
+            bottom: clamp(1.5rem, 5vh, 5vh);
             left: 50%;
             transform: translateX(-50%);
 
             color: #ffffff;
-            font-size: 0.9rem;
+            font-size: clamp(0.65rem, 1.5vw, 0.9rem);
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: clamp(1px, 0.3vw, 2px);
             opacity: 0.8;
 
             animation: bounce 2s infinite;
 
             text-shadow: 2px 2px 4px #000000;
+
+            white-space: nowrap;
         }
 
         @keyframes bounce {
@@ -210,10 +237,10 @@
            ======================================================== */
 
         .hero-custom-slide {
-            min-height: 100vh;
+            min-height: 100svh;
+            width: 100%;
             position: relative;
             overflow: hidden;
-            width: 100%;
 
             background:
                 linear-gradient(
@@ -225,12 +252,12 @@
                 url("home-bg2.png") no-repeat center center;
 
             background-size: cover;
+            background-position: center;
             image-rendering: -webkit-optimize-contrast;
         }
 
         /* ========================================================
            SECOND SLIDE TEXT
-           SAME COLOR AS "STEP CLOSER"
            ======================================================== */
 
         .left-title h1,
@@ -255,13 +282,17 @@
 
         .left-title {
             position: absolute;
-            top: 120px;
-            left: 30px;
-            width: 500px;
+
+            top: clamp(5rem, 12vh, 120px);
+            left: clamp(1rem, 4vw, 30px);
+
+            width: min(500px, 42vw);
 
             border: 2px solid #00d2ff;
 
-            padding: 10px 25px 25px;
+            padding: clamp(0.8rem, 2vw, 10px)
+                     clamp(1rem, 3vw, 25px)
+                     clamp(1.2rem, 3vw, 25px);
 
             background: rgba(0, 0, 0, 0.7);
 
@@ -272,7 +303,7 @@
         }
 
         .left-title h1 {
-            font-size: clamp(50px, 5vw, 72px);
+            font-size: clamp(2rem, 5vw, 4.5rem);
             line-height: 1.15;
             font-weight: 900;
 
@@ -288,14 +319,17 @@
 
         .right-title {
             position: absolute;
-            top: 130px;
-            right: 8%;
-            width: 520px;
+
+            top: clamp(5.5rem, 13vh, 130px);
+            right: clamp(1rem, 8vw, 8%);
+
+            width: min(520px, 42vw);
+
             text-align: center;
         }
 
         .right-title h2 {
-            font-size: clamp(35px, 4vw, 55px);
+            font-size: clamp(1.8rem, 4vw, 3.4rem);
             line-height: 1.2;
             font-weight: 900;
 
@@ -312,16 +346,20 @@
 
         .description {
             position: absolute;
-            left: 0;
-            bottom: 120px;
-            width: 520px;
+
+            left: clamp(1rem, 4vw, 30px);
+            bottom: clamp(4rem, 12vh, 120px);
+
+            width: min(520px, 42vw);
+
             text-align: center;
-            font-size: 23px;
+
+            font-size: clamp(0.9rem, 1.8vw, 1.45rem);
             line-height: 1.45;
         }
 
         .description p {
-            margin-bottom: 38px;
+            margin-bottom: clamp(1.2rem, 3vw, 38px);
             font-weight: 600;
 
             text-shadow:
@@ -337,10 +375,11 @@
 
         .slogan {
             position: absolute;
-            right: 14%;
-            bottom: 85px;
 
-            font-size: 34px;
+            right: clamp(1rem, 14vw, 14%);
+            bottom: clamp(2rem, 8vh, 85px);
+
+            font-size: clamp(1.3rem, 3vw, 2.2rem);
             font-weight: 900;
             font-style: italic;
             line-height: 1.5;
@@ -353,51 +392,298 @@
         }
 
         /* ========================================================
-           MOBILE RESPONSIVENESS
+           TABLETS
            ======================================================== */
 
         @media (max-width: 900px) {
 
             .navbar {
-                padding: 1.5rem 5%;
                 justify-content: center;
+                padding: 1.2rem 4%;
             }
 
             .nav-links {
-                gap: 1.2rem;
+                gap: clamp(0.7rem, 3vw, 1.5rem);
             }
 
             .nav-links a {
-                font-size: 0.85rem;
+                font-size: clamp(0.6rem, 1.8vw, 0.85rem);
             }
 
             .hero-landing {
-                padding-top: 12vh;
-                align-items: center;
+                padding-left: 6%;
+                padding-right: 6%;
             }
 
             .left-title {
-                top: 80px;
-                left: 15px;
-                width: 45%;
+                width: 44%;
             }
 
             .right-title {
-                top: 90px;
-                right: 3%;
-                width: 45%;
+                width: 44%;
+                right: 4%;
             }
 
             .description {
-                width: 45%;
-                bottom: 50px;
-                font-size: 15px;
+                width: 44%;
             }
 
             .slogan {
                 right: 5%;
-                bottom: 25px;
-                font-size: 20px;
+            }
+        }
+
+        /* ========================================================
+           PHONES
+           ======================================================== */
+
+        @media (max-width: 600px) {
+
+            .navbar {
+                padding: 1rem 3%;
+            }
+
+            .nav-links {
+                width: 100%;
+                justify-content: center;
+                gap: 0.7rem;
+            }
+
+            .nav-links a {
+                font-size: 0.58rem;
+                letter-spacing: 0.5px;
+            }
+
+            /* FIRST SLIDE */
+
+            .hero-landing {
+                min-height: 100svh;
+                padding: 6rem 1.2rem 5rem;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .original-content {
+                max-width: 100%;
+                text-align: center;
+            }
+
+            .main-title {
+                font-size: clamp(2.2rem, 12vw, 4rem);
+            }
+
+            .sub-title {
+                font-size: clamp(0.95rem, 4vw, 1.25rem);
+                max-width: 90%;
+            }
+
+            .scroll-down-hint {
+                font-size: 0.6rem;
+            }
+
+            /* SECOND SLIDE */
+
+            .hero-custom-slide {
+                min-height: 100svh;
+                padding: 6rem 1rem 2rem;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            .left-title,
+            .right-title,
+            .description,
+            .slogan {
+                position: relative;
+
+                top: auto;
+                left: auto;
+                right: auto;
+                bottom: auto;
+
+                width: 100%;
+                max-width: 100%;
+            }
+
+            .left-title {
+                margin-bottom: 1.5rem;
+                padding: 0.8rem 1rem 1rem;
+            }
+
+            .left-title h1 {
+                font-size: clamp(2.2rem, 12vw, 3.5rem);
+            }
+
+            .right-title {
+                margin-bottom: 1.5rem;
+            }
+
+            .right-title h2 {
+                font-size: clamp(1.7rem, 8vw, 2.7rem);
+            }
+
+            .description {
+                font-size: clamp(0.9rem, 4vw, 1.15rem);
+            }
+
+            .description p {
+                margin-bottom: 1.2rem;
+            }
+
+            .slogan {
+                text-align: center;
+                font-size: clamp(1.4rem, 7vw, 2rem);
+                margin-top: 0.5rem;
+            }
+        }
+
+        /* ========================================================
+           VERY SMALL PHONES
+           ======================================================== */
+
+        @media (max-width: 380px) {
+
+            .nav-links {
+                gap: 0.45rem;
+            }
+
+            .nav-links a {
+                font-size: 0.5rem;
+            }
+
+            .hero-landing {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .main-title {
+                font-size: 2rem;
+            }
+
+            .sub-title {
+                font-size: 0.9rem;
+            }
+
+            .hero-custom-slide {
+                padding-left: 0.8rem;
+                padding-right: 0.8rem;
+            }
+
+            .left-title h1 {
+                font-size: 2rem;
+            }
+
+            .right-title h2 {
+                font-size: 1.5rem;
+            }
+
+            .description {
+                font-size: 0.85rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========================================================
+           LANDSCAPE PHONES
+           ======================================================== */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .navbar {
+                padding-top: 0.6rem;
+                padding-bottom: 0.6rem;
+            }
+
+            .hero-landing {
+                min-height: 100svh;
+                padding-top: 4rem;
+                padding-bottom: 3rem;
+            }
+
+            .main-title {
+                font-size: clamp(1.8rem, 7vh, 3rem);
+                margin-bottom: 0.5rem;
+            }
+
+            .sub-title {
+                font-size: 0.9rem;
+            }
+
+            .scroll-down-hint {
+                display: none;
+            }
+
+            .hero-custom-slide {
+                min-height: 100svh;
+                padding-top: 4rem;
+                padding-bottom: 1rem;
+            }
+
+            .left-title {
+                margin-bottom: 0.5rem;
+            }
+
+            .left-title h1 {
+                font-size: clamp(1.7rem, 7vh, 3rem);
+            }
+
+            .right-title {
+                margin-bottom: 0.5rem;
+            }
+
+            .right-title h2 {
+                font-size: clamp(1.4rem, 6vh, 2.5rem);
+            }
+
+            .description {
+                font-size: 0.8rem;
+            }
+
+            .description p {
+                margin-bottom: 0.5rem;
+            }
+
+            .slogan {
+                font-size: 1.2rem;
+            }
+        }
+
+        /* ========================================================
+           LARGE SCREENS
+           ======================================================== */
+
+        @media (min-width: 1600px) {
+
+            .hero-landing {
+                padding-left: 10%;
+            }
+
+            .original-content {
+                max-width: 650px;
+            }
+
+            .main-title {
+                font-size: 5rem;
+            }
+
+            .sub-title {
+                font-size: 1.6rem;
+            }
+
+            .left-title {
+                width: min(600px, 40vw);
+            }
+
+            .right-title {
+                width: min(600px, 40vw);
+            }
+
+            .description {
+                width: min(600px, 40vw);
             }
         }
     </style>
