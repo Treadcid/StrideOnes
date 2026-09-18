@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Contact Us - StrideOnes</title>
+
+    <meta name="description" content="Contact StrideOnes with questions about smart footwear, core shoe mechanics, prototypes, sizing, and more.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://strideones.pages.dev/contact.html">
+
     <style>
-        /* Reset spacing and configure base fonts */
+
+        /* =========================================
+           RESET
+        ========================================= */
+
         * {
             margin: 0;
             padding: 0;
@@ -13,197 +28,759 @@
             font-family: Arial, Helvetica, sans-serif;
         }
 
-        /* Displays your laser background full-screen and keeps it locked */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* =========================================
+           BODY
+        ========================================= */
+
         body {
             background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
             background-size: cover;
+
             color: #ffffff;
+
             min-height: 100vh;
+            min-height: 100svh;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 0 5% 4rem 5%;
+
+            padding: 0 5% 4rem;
+
+            overflow-x: hidden;
             overflow-y: auto;
         }
 
-        /* Top Fixed Navigation Bar Layout Matrix */
+        /* =========================================
+           NAVIGATION
+        ========================================= */
+
         .navbar {
             width: 100%;
+
             display: flex;
             justify-content: flex-end;
-            padding: 2.5rem 4%;
+            align-items: center;
+
+            padding:
+                clamp(1.2rem, 3vw, 2.5rem)
+                clamp(1rem, 4vw, 4%);
+
             z-index: 100;
         }
 
         .nav-links {
             display: flex;
+
             list-style: none;
-            gap: 2.5rem;
+
+            gap:
+                clamp(1rem, 2.5vw, 2.5rem);
+
             align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             text-decoration: none;
-            font-size: 1.15rem;
+
+            font-size:
+                clamp(0.7rem, 1.3vw, 1.15rem);
+
             font-weight: 800;
-            letter-spacing: 2px;
+
+            letter-spacing:
+                clamp(0.8px, 0.2vw, 2px);
+
             text-transform: uppercase;
+
             display: inline-block;
-            transition: transform 0.3s ease, filter 0.3s ease;
+
+            white-space: nowrap;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease,
+                color 0.3s ease;
         }
 
-        /* NEON NAVIGATION GLOW CONFIGURATIONS */
+        /* =========================================
+           NEON NAVIGATION COLORS
+        ========================================= */
+
         .link-home {
-            background: linear-gradient(45deg, #00ffff, #ff00ff);
+            background:
+                linear-gradient(45deg, #00ffff, #ff00ff);
+
             -webkit-background-clip: text;
+            background-clip: text;
+
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+
+            filter:
+                drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
         }
 
-        .link-about { color: #bd00ff; text-shadow: 0 0 8px rgba(189, 0, 255, 0.4); }
-        .link-contact { color: #0066ff; text-shadow: 0 0 8px rgba(0, 102, 255, 0.4); }
-        .link-support { color: #00ffcc; text-shadow: 0 0 8px rgba(0, 255, 204, 0.4); }
+        .link-about {
+            color: #bd00ff;
 
-        .nav-links a:hover { transform: scale(1.15); filter: drop-shadow(0 0 15px #00ffff); }
+            text-shadow:
+                0 0 8px rgba(189, 0, 255, 0.4);
+        }
 
-        /* Container box for your contact interface card wrapper */
+        .link-contact {
+            color: #0066ff;
+
+            text-shadow:
+                0 0 8px rgba(0, 102, 255, 0.4);
+        }
+
+        .link-support {
+            color: #00ffcc;
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 204, 0.4);
+        }
+
+        /* =========================================
+           NAVIGATION HOVER
+        ========================================= */
+
+        .nav-links a:hover {
+            transform: scale(1.15);
+
+            filter:
+                drop-shadow(0 0 15px #00ffff);
+        }
+
+        /* =========================================
+           CONTACT FORM CONTAINER
+        ========================================= */
+
         .form-container {
-            max-width: 600px;
-            width: 100%;
-            padding: 3.5rem 3rem;
-            margin-top: 5vh;
-            background: rgba(0, 0, 0, 0.7);
+            width: min(600px, 100%);
+
+            padding:
+                clamp(1.5rem, 5vw, 3.5rem)
+                clamp(1.2rem, 5vw, 3rem);
+
+            margin-top:
+                clamp(1.5rem, 5vh, 5vh);
+
+            background:
+                rgba(0, 0, 0, 0.7);
+
             border-radius: 16px;
-            border: 2px solid #0066ff; /* Match the vivid cyber blue target tracking look */
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 102, 255, 0.3);
+
+            border:
+                2px solid #0066ff;
+
+            box-shadow:
+                0 20px 40px rgba(0, 0, 0, 0.8),
+                0 0 30px rgba(0, 102, 255, 0.3);
+
             backdrop-filter: blur(4px);
+            -webkit-backdrop-filter: blur(4px);
+
             z-index: 10;
         }
 
-        /* Glowing Contact Title Header */
+        /* =========================================
+           CONTACT HEADING
+        ========================================= */
+
         .form-heading {
-            font-size: clamp(2.2rem, 4vw, 2.8rem);
+            font-size:
+                clamp(2rem, 5vw, 2.8rem);
+
             font-weight: 900;
+
             text-align: center;
+
             text-transform: uppercase;
-            margin-bottom: 2.5rem;
-            letter-spacing: 1px;
+
+            margin-bottom:
+                clamp(1.8rem, 4vw, 2.5rem);
+
+            letter-spacing:
+                clamp(0.5px, 0.2vw, 1px);
+
             color: #00ffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.7), 0 0 20px rgba(0, 102, 255, 0.4);
+
+            text-shadow:
+                0 0 10px rgba(0, 255, 255, 0.7),
+                0 0 20px rgba(0, 102, 255, 0.4);
+
+            line-height: 1.1;
+
+            overflow-wrap: break-word;
         }
 
-        /* Cyberpunk Input field blocks formatting layout styles */
+        /* =========================================
+           INPUT GROUP
+        ========================================= */
+
         .input-group {
-            margin-bottom: 2rem;
+            margin-bottom:
+                clamp(1.3rem, 3vw, 2rem);
+
             text-align: left;
         }
 
+        /* =========================================
+           LABELS
+        ========================================= */
+
         .input-group label {
             display: block;
-            font-size: 0.95rem;
+
+            font-size:
+                clamp(0.8rem, 1.8vw, 0.95rem);
+
             font-weight: 700;
+
             text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 0.6rem;
+
+            letter-spacing:
+                clamp(0.5px, 0.15vw, 1px);
+
+            margin-bottom:
+                0.6rem;
+
             color: #b3ffff;
-            text-shadow: 0 0 4px rgba(0, 255, 255, 0.2);
+
+            text-shadow:
+                0 0 4px rgba(0, 255, 255, 0.2);
         }
 
-        .input-group input, .input-group textarea {
+        /* =========================================
+           INPUTS & TEXTAREA
+        ========================================= */
+
+        .input-group input,
+        .input-group textarea {
             width: 100%;
-            padding: 1.1rem;
-            background: rgba(11, 12, 16, 0.85);
-            border: 1px solid rgba(0, 255, 255, 0.25);
+
+            padding:
+                clamp(0.9rem, 2.5vw, 1.1rem);
+
+            background:
+                rgba(11, 12, 16, 0.85);
+
+            border:
+                1px solid rgba(0, 255, 255, 0.25);
+
             border-radius: 8px;
+
             color: #ffffff;
-            font-size: 1.05rem;
+
+            font-size:
+                clamp(0.95rem, 2vw, 1.05rem);
+
             outline: none;
-            transition: all 0.3s ease;
+
+            transition:
+                all 0.3s ease;
         }
 
-        /* Field Active Glow effects selection wrapper */
-        .input-group input:focus, .input-group textarea:focus {
-            border-color: #00ffff;
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.5);
-            background: rgba(11, 12, 16, 0.95);
+        /* Prevent mobile browsers from making text tiny */
+
+        .input-group input,
+        .input-group textarea {
+            -webkit-appearance: none;
+            appearance: none;
         }
+
+        /* =========================================
+           INPUT FOCUS
+        ========================================= */
+
+        .input-group input:focus,
+        .input-group textarea:focus {
+            border-color: #00ffff;
+
+            box-shadow:
+                0 0 15px rgba(0, 255, 255, 0.5);
+
+            background:
+                rgba(11, 12, 16, 0.95);
+        }
+
+        /* =========================================
+           PLACEHOLDER
+        ========================================= */
+
+        .input-group input::placeholder,
+        .input-group textarea::placeholder {
+            color: rgba(179, 255, 255, 0.55);
+        }
+
+        /* =========================================
+           MESSAGE BOX
+        ========================================= */
 
         .input-group textarea {
             resize: vertical;
-            min-height: 140px;
+
+            min-height:
+                clamp(120px, 20vw, 140px);
         }
 
-        /* Neon Action Submission element button selector styling */
+        /* =========================================
+           SUBMIT BUTTON
+        ========================================= */
+
         .submit-btn {
             width: 100%;
-            padding: 1.1rem;
+
+            padding:
+                clamp(0.9rem, 2.5vw, 1.1rem);
+
             background: transparent;
-            border: 2px solid #00ffff;
+
+            border:
+                2px solid #00ffff;
+
             border-radius: 30px;
+
             color: #00ffff;
-            font-size: 1.15rem;
+
+            font-size:
+                clamp(0.95rem, 2.2vw, 1.15rem);
+
             font-weight: 800;
+
             text-transform: uppercase;
-            letter-spacing: 1.5px;
+
+            letter-spacing:
+                clamp(0.8px, 0.2vw, 1.5px);
+
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+
+            transition:
+                all 0.3s ease;
+
+            box-shadow:
+                0 0 10px rgba(0, 255, 255, 0.2);
+
             margin-top: 1rem;
         }
 
+        /* =========================================
+           BUTTON HOVER
+        ========================================= */
+
         .submit-btn:hover {
             background: #00ffff;
+
             color: #0b0c10;
-            box-shadow: 0 0 25px #00ffff, 0 0 5px #00ffff;
+
+            box-shadow:
+                0 0 25px #00ffff,
+                0 0 5px #00ffff;
+
             transform: scale(1.02);
         }
 
-        /* Mobile specific adjustments scaling responsiveness views values */
-        @media (max-width: 900px) {
-            .navbar { padding: 1.5rem 2%; justify-content: center; }
-            .nav-links { gap: 1.2rem; }
-            .nav-links a { font-size: 0.85rem; }
-            .form-container { margin-top: 2vh; padding: 2.5rem 1.5rem; }
+        /* =========================================
+           BUTTON ACTIVE
+        ========================================= */
+
+        .submit-btn:active {
+            transform: scale(0.98);
         }
+
+        /* =========================================
+           TABLETS
+        ========================================= */
+
+        @media (max-width: 900px) {
+
+            body {
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
+            .navbar {
+                padding:
+                    1.5rem 2%;
+
+                justify-content: center;
+            }
+
+            .nav-links {
+                gap:
+                    1.2rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.85rem;
+            }
+
+            .form-container {
+                margin-top:
+                    2vh;
+
+                padding:
+                    2.5rem 1.5rem;
+            }
+        }
+
+        /* =========================================
+           PHONES
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-attachment: scroll;
+
+                padding:
+                    0 1rem 2rem;
+            }
+
+            .navbar {
+                width: 100%;
+
+                padding:
+                    1.2rem 0.25rem 0.8rem;
+
+                justify-content: center;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                gap:
+                    0.65rem 0.9rem;
+
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size:
+                    clamp(0.62rem, 2.7vw, 0.78rem);
+
+                letter-spacing:
+                    0.5px;
+            }
+
+            .form-container {
+                width: 100%;
+
+                margin-top:
+                    1.5rem;
+
+                padding:
+                    1.5rem 1.1rem 1.7rem;
+
+                border-radius:
+                    12px;
+            }
+
+            .form-heading {
+                font-size:
+                    clamp(1.8rem, 9vw, 2.4rem);
+
+                margin-bottom:
+                    1.7rem;
+            }
+
+            .input-group {
+                margin-bottom:
+                    1.3rem;
+            }
+
+            .input-group label {
+                font-size:
+                    0.78rem;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding:
+                    0.9rem;
+
+                font-size:
+                    1rem;
+            }
+
+            .input-group textarea {
+                min-height:
+                    130px;
+            }
+
+            .submit-btn {
+                padding:
+                    0.95rem;
+
+                font-size:
+                    0.95rem;
+
+                margin-top:
+                    0.5rem;
+            }
+        }
+
+        /* =========================================
+           VERY SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            body {
+                padding:
+                    0 0.7rem 1.5rem;
+            }
+
+            .navbar {
+                padding-top:
+                    1rem;
+            }
+
+            .nav-links {
+                gap:
+                    0.5rem 0.7rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.58rem;
+
+                letter-spacing:
+                    0.3px;
+            }
+
+            .form-container {
+                padding:
+                    1.2rem 0.9rem 1.4rem;
+            }
+
+            .form-heading {
+                font-size:
+                    1.7rem;
+
+                margin-bottom:
+                    1.4rem;
+            }
+
+            .input-group label {
+                font-size:
+                    0.72rem;
+            }
+
+            .input-group input,
+            .input-group textarea {
+                padding:
+                    0.8rem;
+
+                font-size:
+                    0.95rem;
+            }
+
+            .submit-btn {
+                font-size:
+                    0.85rem;
+
+                letter-spacing:
+                    0.7px;
+            }
+        }
+
+        /* =========================================
+           LANDSCAPE PHONES
+        ========================================= */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .navbar {
+                padding:
+                    0.8rem 2%;
+            }
+
+            .nav-links {
+                gap:
+                    1rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.7rem;
+            }
+
+            .form-container {
+                margin-top:
+                    1rem;
+
+                padding:
+                    1.5rem 1.5rem;
+            }
+
+            .form-heading {
+                font-size:
+                    2rem;
+
+                margin-bottom:
+                    1.3rem;
+            }
+
+            .input-group {
+                margin-bottom:
+                    1rem;
+            }
+
+            .input-group textarea {
+                min-height:
+                    100px;
+            }
+        }
+
+        /* =========================================
+           LARGE SCREENS
+        ========================================= */
+
+        @media (min-width: 1600px) {
+
+            .form-container {
+                width:
+                    min(650px, 60vw);
+            }
+
+            .form-heading {
+                font-size:
+                    3rem;
+            }
+        }
+
     </style>
+
 </head>
+
 <body>
 
-    <!-- Header Navigation Section Link Bar -->
+    <!-- Header Navigation Section -->
+
     <header class="navbar">
+
         <ul class="nav-links">
-            <li><a href="index.html" class="link-home">Home</a></li>
-            <li><a href="about.html" class="link-about">About</a></li>
-            <li><a href="contact.html" class="link-contact">Contact</a></li>
-            <li><a href="support.html" class="link-support">Contact Support</a></li>
+
+            <li>
+                <a href="index.html" class="link-home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html" class="link-about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="link-contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="support.html" class="link-support">
+                    Contact Support
+                </a>
+            </li>
+
         </ul>
+
     </header>
 
-    <!-- Message Entry Center Card Component -->
-    <div class="form-container">
-        <h2 class="form-heading">Get In Touch</h2>
-        
-        <!-- FORMSPREE ACTIVE ENDPOINT WITH POPUP CODE REMOVED COMPLETELY -->
+
+    <!-- Contact Form -->
+
+    <main class="form-container">
+
+        <h1 class="form-heading">
+            Get In Touch
+        </h1>
+
         <form action="https://formspree.io/f/mljerkek" method="POST">
-            <div class="input-group">
-                <label for="name">Your Name</label>
-                <input type="text" id="name" name="name" required placeholder="Enter your full name">
-            </div>
+
+            <!-- Name -->
 
             <div class="input-group">
-                <label for="email">Email Address</label>
-                <input type="email" id="email" name="email" required placeholder="Enter your network email address">
+
+                <label for="name">
+                    Your Name
+                </label>
+
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    autocomplete="name"
+                    placeholder="Enter your full name"
+                >
+
             </div>
+
+
+            <!-- Email -->
 
             <div class="input-group">
-                <label for="message">Message Details</label>
-                <textarea id="message" name="message" required placeholder="Type out your questions about our core shoe mechanics, prototype sizing, or order nodes here..."></textarea>
+
+                <label for="email">
+                    Email Address
+                </label>
+
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    autocomplete="email"
+                    placeholder="Enter your network email address"
+                >
+
             </div>
 
-            <button type="submit" class="submit-btn">Send Message</button>
+
+            <!-- Message -->
+
+            <div class="input-group">
+
+                <label for="message">
+                    Message Details
+                </label>
+
+                <textarea
+                    id="message"
+                    name="message"
+                    required
+                    placeholder="Type out your questions about our core shoe mechanics, prototype sizing, or order nodes here..."
+                ></textarea>
+
+            </div>
+
+
+            <!-- Submit -->
+
+            <button
+                type="submit"
+                class="submit-btn">
+                Send Message
+            </button>
+
         </form>
-    </div>
+
+    </main>
 
 </body>
+
 </html>
