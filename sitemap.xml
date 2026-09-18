@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://sitemaps.org">
   <url>
-    <loc>https://pages.dev</loc>
+    <loc>https://strideones.pages.dev/</loc>
   </url>
   <url>
-    <loc>https://pages.devabout.html</loc>
+    <loc>https://strideones.pages.dev/about.html</loc>
   </url>
   <url>
-    <loc>https://pages.devcontact.html</loc>
+    <loc>https://strideones.pages.dev/contact.html</loc>
   </url>
   <url>
-    <loc>https://pages.devsupport.html</loc>
+    <loc>https://strideones.pages.dev/support.html</loc>
   </url>
 </urlset>
