@@ -7,11 +7,19 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>About - Mechanics & Markets</title>
+    <title>About - The Core Mechanics | Strideones</title>
+
+    <meta name="description" content="Learn how Strideones smart footwear works, including active motion cancellation, sensor technology, dual controls, VR applications, and space-saving fitness technology.">
+
+    <meta name="robots" content="index, follow">
+
+    <link rel="canonical" href="https://strideones.pages.dev/about.html">
 
     <style>
 
-        /* Reset spacing and configure fonts */
+        /* =========================================
+           RESET
+        ========================================= */
 
         * {
             margin: 0;
@@ -20,162 +28,295 @@
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         }
 
-        /* Displays your crystal background perfectly full-screen and keeps it locked while scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* =========================================
+           BODY
+        ========================================= */
 
         body {
             background: #0b0c10 url('tech-bg.png') no-repeat center center fixed;
             background-size: cover;
+
             color: #00ffff;
+
             min-height: 100vh;
+            min-height: 100svh;
+
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: flex-start;
-            padding: 0 5% 4rem 5%;
+
+            padding: 0 5% 4rem;
+
+            overflow-x: hidden;
             overflow-y: auto;
         }
 
-        /* Top Navigation Bar Styling matching Homepage */
+        /* =========================================
+           NAVIGATION
+        ========================================= */
 
         .navbar {
             width: 100%;
             display: flex;
             justify-content: flex-end;
-            padding: 2.5rem 4%;
+            align-items: center;
+
+            padding: clamp(1.2rem, 3vw, 2.5rem)
+                     clamp(1rem, 4vw, 4%);
+
             z-index: 100;
         }
 
         .nav-links {
             display: flex;
             list-style: none;
-            gap: 2.5rem;
+
+            gap: clamp(1rem, 2.5vw, 2.5rem);
+
             align-items: center;
+            justify-content: center;
+
+            flex-wrap: wrap;
         }
 
         .nav-links a {
             text-decoration: none;
-            font-size: 1.15rem;
+
+            font-size: clamp(0.7rem, 1.3vw, 1.15rem);
+
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: clamp(0.8px, 0.2vw, 2px);
+
             text-transform: uppercase;
+
             display: inline-block;
-            transition: transform 0.3s ease, filter 0.3s ease;
+
+            white-space: nowrap;
+
+            transition:
+                transform 0.3s ease,
+                filter 0.3s ease,
+                color 0.3s ease;
         }
 
-        /* INTENSE NEON COLOR PROFILES */
+        /* =========================================
+           NEON COLOR PROFILES
+        ========================================= */
 
         .link-home {
             background: linear-gradient(45deg, #00ffff, #ff00ff);
+
             -webkit-background-clip: text;
+            background-clip: text;
+
             -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
+
+            filter:
+                drop-shadow(0 0 2px rgba(255, 0, 255, 0.5));
         }
 
         .link-about {
             color: #bd00ff;
-            text-shadow: 0 0 8px rgba(189, 0, 255, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(189, 0, 255, 0.4);
         }
 
         .link-contact {
             color: #0066ff;
-            text-shadow: 0 0 8px rgba(0, 102, 255, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(0, 102, 255, 0.4);
         }
 
         .link-support {
             color: #00ffcc;
-            text-shadow: 0 0 8px rgba(0, 255, 204, 0.4);
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 204, 0.4);
         }
 
-        /* POWERFUL NEON HOVER SHADOW EFFECTS */
+        /* =========================================
+           HOVER EFFECTS
+        ========================================= */
 
         .link-home:hover {
             transform: scale(1.15);
-            filter: drop-shadow(0 0 15px #ff00ff) drop-shadow(0 0 5px #00ffff);
+
+            filter:
+                drop-shadow(0 0 15px #ff00ff)
+                drop-shadow(0 0 5px #00ffff);
         }
 
         .link-about:hover {
             transform: scale(1.15);
+
             color: #df80ff;
-            text-shadow: 0 0 15px #bd00ff, 0 0 30px #bd00ff;
+
+            text-shadow:
+                0 0 15px #bd00ff,
+                0 0 30px #bd00ff;
         }
 
         .link-contact:hover {
             transform: scale(1.15);
+
             color: #80b3ff;
-            text-shadow: 0 0 15px #0066ff, 0 0 30px #0066ff;
+
+            text-shadow:
+                0 0 15px #0066ff,
+                0 0 30px #0066ff;
         }
 
         .link-support:hover {
             transform: scale(1.15);
+
             color: #ffffff;
-            text-shadow: 0 0 15px #00ffcc, 0 0 30px #00ffcc;
+
+            text-shadow:
+                0 0 15px #00ffcc,
+                0 0 30px #00ffcc;
         }
 
-        /* Layout wrapper for content blocks */
+        /* =========================================
+           MAIN CONTENT CONTAINER
+        ========================================= */
 
         .tech-container {
-            max-width: 900px;
-            width: 100%;
-            padding: 2rem;
+            width: min(900px, 100%);
+
+            padding:
+                clamp(0.5rem, 2vw, 2rem);
+
             z-index: 10;
-            margin-top: 5vh;
+
+            margin-top: clamp(1rem, 5vh, 5vh);
         }
 
-        /* Main Title Component styled with neon blue laser profile */
+        /* =========================================
+           MAIN TITLE
+        ========================================= */
 
         .mechanics-heading {
-            font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+            font-size: clamp(2rem, 5vw, 3.2rem);
+
             font-weight: 900;
+
             text-align: center;
+
             text-transform: uppercase;
-            margin-bottom: 3.5rem;
-            letter-spacing: 1.5px;
+
+            margin-bottom: clamp(2rem, 5vw, 3.5rem);
+
+            letter-spacing: clamp(0.8px, 0.2vw, 1.5px);
+
             color: #00ffff;
-            text-shadow: 0 0 10px rgba(0, 255, 255, 0.6), 0 0 20px rgba(0, 102, 255, 0.4);
+
+            text-shadow:
+                0 0 10px rgba(0, 255, 255, 0.6),
+                0 0 20px rgba(0, 102, 255, 0.4);
+
+            line-height: 1.1;
+
+            overflow-wrap: break-word;
         }
 
-        /* Feature block layout formatting */
+        /* =========================================
+           FEATURE BLOCKS
+        ========================================= */
 
         .feature-block {
-            margin-bottom: 2.5rem;
+            margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+
             text-align: left;
+
             background: rgba(11, 12, 16, 0.65);
-            padding: 2rem;
+
+            padding: clamp(1.2rem, 3vw, 2rem);
+
             border-radius: 12px;
-            border-left: 4px solid #00ffff;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), 0 0 15px rgba(0, 255, 255, 0.05);
+
+            border-left:
+                clamp(3px, 0.4vw, 4px)
+                solid #00ffff;
+
+            box-shadow:
+                0 15px 35px rgba(0, 0, 0, 0.6),
+                0 0 15px rgba(0, 255, 255, 0.05);
+
             backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
+
+            width: 100%;
+
+            overflow: hidden;
         }
 
-        /* Sub-feature header with striking electric neon blue gradient color text */
+        /* =========================================
+           FEATURE TITLES
+        ========================================= */
 
         .feature-title {
-            font-size: clamp(1.2rem, 2vw, 1.5rem);
+            font-size: clamp(1.05rem, 2.2vw, 1.5rem);
+
             font-weight: 800;
+
             color: #00ffff;
-            margin-bottom: 0.8rem;
+
+            margin-bottom: clamp(0.6rem, 2vw, 0.8rem);
+
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            text-shadow: 0 0 8px rgba(0, 255, 255, 0.5);
+
+            letter-spacing: clamp(0.3px, 0.1vw, 0.5px);
+
+            text-shadow:
+                0 0 8px rgba(0, 255, 255, 0.5);
+
+            line-height: 1.3;
+
+            overflow-wrap: break-word;
         }
 
-        /* Running copy content descriptions shifting to neon blue hue tint */
+        /* =========================================
+           DESCRIPTION TEXT
+        ========================================= */
 
         .tech-description {
-            font-size: clamp(1.05rem, 1.6vw, 1.2rem);
-            line-height: 1.8;
+            font-size: clamp(0.95rem, 1.6vw, 1.2rem);
+
+            line-height: clamp(1.6, 1.8, 1.9);
+
             color: #b3ffff;
+
             font-weight: 500;
-            text-shadow: 0 0 4px rgba(0, 255, 255, 0.2);
+
+            text-shadow:
+                0 0 4px rgba(0, 255, 255, 0.2);
+
+            overflow-wrap: break-word;
         }
 
-        /* Mobile specific adjustments */
+        /* =========================================
+           TABLET
+        ========================================= */
 
         @media (max-width: 900px) {
 
+            body {
+                padding-left: 3%;
+                padding-right: 3%;
+            }
+
             .navbar {
                 justify-content: center;
-                padding: 1.5rem 2%;
+
+                padding:
+                    1.5rem 2%;
             }
 
             .nav-links {
@@ -187,12 +328,228 @@
             }
 
             .tech-container {
+                width: 100%;
+
                 margin-top: 4vh;
-                padding: 0.5rem;
+
+                padding:
+                    0.5rem;
             }
 
             .feature-block {
                 padding: 1.5rem;
+            }
+        }
+
+        /* =========================================
+           PHONE
+        ========================================= */
+
+        @media (max-width: 600px) {
+
+            body {
+                background-attachment: scroll;
+
+                padding:
+                    0 1rem 2rem;
+            }
+
+            .navbar {
+                width: 100%;
+
+                padding:
+                    1.2rem 0.25rem 0.8rem;
+
+                justify-content: center;
+            }
+
+            .nav-links {
+                width: 100%;
+
+                gap:
+                    0.65rem 0.9rem;
+
+                justify-content: center;
+            }
+
+            .nav-links a {
+                font-size: clamp(0.62rem, 2.7vw, 0.78rem);
+
+                letter-spacing:
+                    0.5px;
+            }
+
+            .tech-container {
+                margin-top: 2rem;
+
+                padding:
+                    0;
+            }
+
+            .mechanics-heading {
+                font-size:
+                    clamp(1.8rem, 9vw, 2.5rem);
+
+                margin-bottom:
+                    2rem;
+
+                line-height: 1.15;
+            }
+
+            .feature-block {
+                padding:
+                    1.15rem;
+
+                margin-bottom:
+                    1.3rem;
+
+                border-radius:
+                    10px;
+            }
+
+            .feature-title {
+                font-size:
+                    clamp(0.95rem, 5vw, 1.2rem);
+
+                line-height:
+                    1.3;
+
+                margin-bottom:
+                    0.7rem;
+            }
+
+            .tech-description {
+                font-size:
+                    clamp(0.9rem, 4.2vw, 1.05rem);
+
+                line-height:
+                    1.7;
+            }
+        }
+
+        /* =========================================
+           VERY SMALL PHONES
+        ========================================= */
+
+        @media (max-width: 380px) {
+
+            body {
+                padding:
+                    0 0.7rem 1.5rem;
+            }
+
+            .navbar {
+                padding-top:
+                    1rem;
+            }
+
+            .nav-links {
+                gap:
+                    0.5rem 0.7rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.58rem;
+
+                letter-spacing:
+                    0.3px;
+            }
+
+            .tech-container {
+                margin-top:
+                    1.5rem;
+            }
+
+            .mechanics-heading {
+                font-size:
+                    1.7rem;
+
+                margin-bottom:
+                    1.5rem;
+            }
+
+            .feature-block {
+                padding:
+                    1rem;
+            }
+
+            .feature-title {
+                font-size:
+                    0.95rem;
+            }
+
+            .tech-description {
+                font-size:
+                    0.9rem;
+
+                line-height:
+                    1.6;
+            }
+        }
+
+        /* =========================================
+           LANDSCAPE PHONES
+        ========================================= */
+
+        @media (max-height: 500px) and (orientation: landscape) {
+
+            .navbar {
+                padding:
+                    0.8rem 2%;
+            }
+
+            .nav-links {
+                gap:
+                    1rem;
+            }
+
+            .nav-links a {
+                font-size:
+                    0.7rem;
+            }
+
+            .tech-container {
+                margin-top:
+                    1rem;
+            }
+
+            .mechanics-heading {
+                font-size:
+                    2rem;
+
+                margin-bottom:
+                    1.5rem;
+            }
+
+            .feature-block {
+                padding:
+                    1rem;
+
+                margin-bottom:
+                    1rem;
+            }
+        }
+
+        /* =========================================
+           LARGE SCREENS
+        ========================================= */
+
+        @media (min-width: 1600px) {
+
+            .tech-container {
+                width:
+                    min(1000px, 70vw);
+            }
+
+            .feature-block {
+                padding:
+                    2.3rem;
+            }
+
+            .mechanics-heading {
+                font-size:
+                    3.5rem;
             }
         }
 
@@ -205,93 +562,124 @@
     <!-- Header Navigation Section -->
 
     <header class="navbar">
+
         <ul class="nav-links">
-            <li><a href="index.html" class="link-home">Home</a></li>
-            <li><a href="about.html" class="link-about">About</a></li>
-            <li><a href="contact.html" class="link-contact">Contact</a></li>
-            <li><a href="support.html" class="link-support">Contact Support</a></li>
+
+            <li>
+                <a href="index.html" class="link-home">
+                    Home
+                </a>
+            </li>
+
+            <li>
+                <a href="about.html" class="link-about">
+                    About
+                </a>
+            </li>
+
+            <li>
+                <a href="contact.html" class="link-contact">
+                    Contact
+                </a>
+            </li>
+
+            <li>
+                <a href="support.html" class="link-support">
+                    Contact Support
+                </a>
+            </li>
+
         </ul>
+
     </header>
 
-    <div class="tech-container">
 
-        <!-- Main Core Mechanics Title Layer -->
+    <!-- Main Content -->
 
-        <h2 class="mechanics-heading">
+    <main class="tech-container">
+
+        <!-- Main Core Mechanics Title -->
+
+        <h1 class="mechanics-heading">
             The Core Mechanics
-        </h2>
+        </h1>
 
-        <!-- Block 1: Active Motion Cancellation -->
 
-        <div class="feature-block">
+        <!-- Block 1 -->
 
-            <h3 class="feature-title">
+        <section class="feature-block">
+
+            <h2 class="feature-title">
                 Active Motion Cancellation:
-            </h3>
+            </h2>
 
             <p class="tech-description">
                 The sole of the shoe contains a matrix of miniature, motorized micro-belts and multi-directional rollers. Instead of the user moving across the floor, the floor-contact layer of the shoe moves underneath the user.
             </p>
 
-        </div>
+        </section>
 
-        <!-- Block 2: Instantaneous Sensor Loop -->
 
-        <div class="feature-block">
+        <!-- Block 2 -->
 
-            <h3 class="feature-title">
+        <section class="feature-block">
+
+            <h2 class="feature-title">
                 Instantaneous Sensor Loop:
-            </h3>
+            </h2>
 
             <p class="tech-description">
                 Embedded pressure plates and motion sensors track the user's foot movement in milliseconds. If the user steps forward at 5 km/h, the internal motors instantly drive the rollers backward at 5 km/h. The two forces cancel out perfectly, keeping the user centered.
             </p>
 
-        </div>
+        </section>
 
-        <!-- Block 3: Dual-Control Ecosystem -->
 
-        <div class="feature-block">
+        <!-- Block 3 -->
 
-            <h3 class="feature-title">
+        <section class="feature-block">
+
+            <h2 class="feature-title">
                 Dual-Control Ecosystem:
-            </h3>
+            </h2>
 
             <p class="tech-description">
                 The user has total control. A companion smartphone app handles advanced calibration, stride tracking, and safety caps. For immediate, tactile adjustments or emergency stops, we have integrated a discreet manual dial directly into the heel of the shoe.
             </p>
 
-        </div>
+        </section>
 
-        <!-- Block 4: The Virtual Reality Market -->
 
-        <div class="feature-block">
+        <!-- Block 4 -->
 
-            <h3 class="feature-title">
+        <section class="feature-block">
+
+            <h2 class="feature-title">
                 The Virtual Reality Market:
-            </h3>
+            </h2>
 
             <p class="tech-description">
                 This solves VR's biggest problem immersion. Users can physically walk through massive digital worlds in their living rooms without hitting actual walls.
             </p>
 
-        </div>
+        </section>
 
-        <!-- Block 5: The Fitness & Space Saving Market -->
 
-        <div class="feature-block">
+        <!-- Block 5 -->
 
-            <h3 class="feature-title">
-                The Fitness & Space Saving Market:
-            </h3>
+        <section class="feature-block">
+
+            <h2 class="feature-title">
+                The Fitness &amp; Space Saving Market:
+            </h2>
 
             <p class="tech-description">
                 It replaces bulky, expensive home treadmills with a pair of shoes you can store in a closet.
             </p>
 
-        </div>
+        </section>
 
-    </div>
+    </main>
 
 </body>
 
